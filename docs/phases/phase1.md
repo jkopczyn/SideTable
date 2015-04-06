@@ -2,27 +2,26 @@
 
 ## Rails
 ### Models
-* User
-* Blog
-* Post
+* Game
 
 ### Controllers
-* UsersController (create, new)
-* SessionsController (create, new, destroy)
-* BlogsController (create, new, show)
-* PostsController (create, new, show)
+* StaticPagesController (show)
+* Api::GamesController (show)
 
 ### Views
-* users/new.html.erb
-* session/new.html.erb
-* blogs/new.html.erb
-* blogs/show.html.erb
+* games/show.json.jbuilder
+* root.html.erb
+* games/index.html.erb
 
 ## Backbone
 ### Models
+* Game
 
 ### Collections
+* Games
 
 ### Views
+* GameShow
 
 ## Gems/Libraries
+

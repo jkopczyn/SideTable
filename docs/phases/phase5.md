@@ -2,21 +2,30 @@
 
 ## Rails
 ### Models
+Friendship
 
 ### Controllers
-Api::BlogsController (search)
-Api::PostsController (search)
+Api::FriendshipsController (create, update, destroy, show, index)
+Api:UsersController (update, show)
 
 ### Views
+users/show.json.jbuilder (include friendships)
+friendships/\_friendship.json.jbuilder
+friendships/index.json.jbuilder
+friendships/show.json.jbuilder
 
 ## Backbone
 ### Models
+Friendship
 
 ### Collections
+Friendships
 
 ### Views
-* BlogSearchItem
-* SearchShow (composite view, contains BlogsIndex and PostsIndex subviews)
+* UserShow
+* UserForm
+* UsersIndex
+* UserIndexItem
 
 ## Gems/Libraries
-
+* Filepicker

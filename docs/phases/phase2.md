@@ -4,26 +4,24 @@
 ### Models
 
 ### Controllers
-Api::BlogsController (create, destroy, index, show)
-Api::PostsController (create, destroy, show, update)
+* Api::GamesController (index)
 
 ### Views
-* blogs/show.json.jbuilder
+* gamess/index.json.jbuilder
 
 ## Backbone
 ### Models
-* Blog (parses nested `posts` association)
-* Post
+Collection (of games; may use the name Shelf instead)
 
 ### Collections
-* Blogs
-* Posts
 
 ### Views
-* BlogForm
-* BlogShow (composite view, contains PostsIndex subview)
-* PostsIndex (composite view, contains PostsIndexItem subviews)
-* PostsIndexItem
-* PostShow
+* CollectionShowShort
+* GamesIndexShort
+
+### Additional Templates
+* Navbar
+* SearchBar
+* GameItemShort
 
 ## Gems/Libraries

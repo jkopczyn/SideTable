@@ -2,19 +2,31 @@
 
 ## Rails
 ### Models
+Rating
+Review
 
 ### Controllers
-Api::PostsController (feed)
+Api::RatingsController (create, update, destroy, show)
+Api::ReviewsController (create, update, destroy, show)
 
 ### Views
-posts/feed.json.jbuilder
+ratings/show.json.jbuilder
+reviews/show.json.jbuilder
 
 ## Backbone
 ### Models
+Rating
+Review
 
 ### Collections
+Ratings
+Reviews
 
 ### Views
-* FeedShow (composite view, contains PostsIndex subview)
+* RatingShow
+* RatingForm
+* ReviewShow
+* ReviewForm
+* ReviewIndexItem
 
 ## Gems/Libraries
