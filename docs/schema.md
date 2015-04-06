@@ -1,39 +1,11 @@
 # Schema Information
 
-## blogs
+## games
 column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
-owner_id    | integer   | not null, foreign key (references users)
 title       | string    | not null
-
-## followings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-blog_id     | integer   | not null, foreign key (references blogs)
-follower_id | integer   | not null, foreign key (references users)
-
-## posts
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-author_id   | integer   | not null, foreign key (references users)
-title       | string    | not null
-body        | string    |
-
-## tags
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-label       | string    | not null, unique
-
-## taggings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-post_id     | integer   | not null, foreign key (references posts)
-tag_id      | integer   | not null, foreign key (references tags)
+image_url   | string    | 
 
 ## users
 column name     | data type | details
@@ -43,3 +15,26 @@ email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
 
+## friendships
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+first_user_id  | integer   | not null, foreign key (references users)
+second_user_id | integer   | not null, foreign key (references users)
+
+## ratings
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+rating      | integer   | not null
+user_id     | integer   | not null, foreign key
+game_id     | integer   | not null, foreign key
+
+
+## reviews
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+body        | text      | not null
+user_id     | integer   | not null, foreign key
+game_id     | integer   | not null, foreign key
