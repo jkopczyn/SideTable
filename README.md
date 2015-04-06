@@ -1,11 +1,12 @@
-# Flux-capacitr
+# SideTable
 
-[Heroku link][heroku]
+<!-- [Heroku link][heroku] -->
 
-[heroku]: http://flux-capacitr.herokuapp.com
+<!-- [heroku]: http://flux-capacitr.herokuapp.com -->
 
 ## Minimum Viable Product
-Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
+SideTable is a clone of Goodreads adapted for board and card games, 
+built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
