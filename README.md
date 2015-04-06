@@ -9,16 +9,16 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your progress! -->
 
-- [x] Create accounts
-- [x] Create sessions (log in)
-- [x] Create blogs
-- [x] Create blog posts
-- [ ] View blogs and posts
-- [ ] Subscribe to blogs
-- [ ] View a feed of subscribed blogs
-- [ ] Tag blog posts
-- [ ] Search for blogs by title
-- [ ] Search for posts by tag
+- [ ] View game details with ratings and reviews
+- [ ] Search for games by name
+- [ ] Create Accounts
+- [ ] Log In
+- [ ] Add games to their collection
+- [ ] Rate games
+- [ ] Review games
+- [ ] Search for users
+- [ ] View user profiles
+- [ ] Add friends
 
 ## Design Docs
 * [View Wireframes][views]
@@ -29,59 +29,66 @@ Flux-capacitr is a clone of Tumblr built on Rails and Backbone. Users can:
 
 ## Implementation Timeline
 
-### Phase 1: User Authentication, Blog Creation (~1 day)
-I will implement user authentication in Rails based on the practices learned at
-App Academy. By the end of this phase, users will be able to create blogs using
-a simple text form in a Rails view. The most important part of this phase will
-be pushing the app to Heroku and ensuring that everything works before moving on
-to phase 2.
+### Phase 1: View Game Pages (~1 day)
+I will implement a bare-bones index of all games in Rails, and add API routes
+for game data and Backbone show views for the games in the database. I will 
+push the app to Heroku and ensure that everything works before moving on.
 
 [Details][phase-one]
 
-### Phase 2: Viewing Blogs and Posts (~2 days)
-I will add API routes to serve blog and post data as JSON, then add Backbone
-models and collections that fetch data from those routes. By the end of this
-phase, users will be able to create blogs and view both blogs and posts, all
-inside a single Backbone app.
+### Phase 2: Search by Name (~1.5 days)
+I will implement API routes to fetch and query game data in JSON, then add 
+Backbone models and collections to request and fetch that data as DOM pages.
+By the end of this phase, users will be able to query games by name and
+browse results, all within a single Backbone app.
 
 [Details][phase-two]
 
-### Phase 3: Editing and Displaying Posts (~2 days)
-I plan to use third-party libraries to add functionality to the `PostForm` and
-`PostShow` views in this phase. First I'll need to add a Markdown editor to the
-`PostForm`, and make sure that the Markdown is properly escaped and formatted in
-the `PostShow` view. I also plan to integrate Filepicker for file upload so
-users can add images to blog posts.
+### Phase 3: User Accounts and Authentication (~ 2.5 days)
+I will implement users and session authentication in Rails, based on the
+practices and patterns learned at App Academy, and allow users to create
+personal game collections and add games to them. By the end of this phase, users
+will be able to store and modify collections of games.
 
 [Details][phase-three]
 
-### Phase 4: User Feeds (~1-2 days)
-I'll start by adding a `feed` route that uses the `current_user`'s
-`subscribed_blogs` association to serve a list of blog posts ordered
-chronologically. On the Backbone side, I'll make a `FeedShow` view whose `posts`
-collection fetches from the new route.  Ultimately, this will be the page users
-see after logging in.
+### Phase 4: Rate and Review Games (~2 days)
+I will implement the ability for users to leave ratings and reviews on
+games; these will be backed by join tables between Users and Games and
+have standard REST routes. On the Backbone side, these subviews will appear
+as part of the game Show and Item views. Additionally, the game Show
+page will show a list of reviews and an aggregate rating, and the Item
+view will show the aggregate rating.
+
 
 [Details][phase-four]
 
-### Phase 5: Searching for Blogs and Posts (~2 days)
-I'll need to add `search` routes to both the Blogs and Posts controllers. On the
-Backbone side, there will be a `SearchResults` composite view has `BlogsIndex`
-and `PostsIndex` subviews. These views will use plain old `blogs` and `posts`
-collections, but they will fetch from the new `search` routes.
+### Phase 5: Search users, add friends, and view profiles (~ 3 days)
+I will create a profile view for each user including a profile image
+(using the Filepicker library) and personal description. A form subview to 
+change these will be linked, and a small form to add the user as a friend. The 
+user's collection view (used in the home page) will also appear. Additionally,
+I will create a page to view each user's friend list linked from their profile;
+each user will appear with username, small picture, and link to their profile.
 
 [Details][phase-five]
 
-### Bonus Features (TBD)
-- [ ] "Like" button and counter for posts
-- [ ] Custom blog urls
-- [ ] Pagination/infinite scroll
-- [ ] Activity history (e.g. likes, reblogs, taggings)
-- [ ] Post types (image posts, quote posts, etc)
-- [ ] Reblogging
-- [ ] Multiple sessions/session management
-- [ ] User avatars
-- [ ] Typeahead search bar
+### Bonus Features 
+#### Highly desirable features: 
+
+- [ ] Add games to database
+- [ ] Search for games by tags
+- [ ] Add tags to games
+- [ ] Search for games by designer
+- [ ] List of recommended games
+- [ ] Sort user's collections into multiple lists
+
+#### Non-core features:
+
+- [ ] Display friend notifications
+- [ ] Compare friend's collection with your own
+- [ ] Display notifications for other activity
+- [ ] Intelligent recommendations
 
 [phase-one]: ./docs/phases/phase1.md
 [phase-two]: ./docs/phases/phase2.md
