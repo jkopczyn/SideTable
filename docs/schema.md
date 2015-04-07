@@ -27,7 +27,25 @@ column name | data type | details
 ------------|-----------|-----------------------
 id          | integer   | not null, primary key
 title       | string    | not null
+designer    | string    |
 image_url   | string    | 
+
+## ratings
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+rating      | integer   | not null
+user_id     | integer   | not null, foreign key
+game_id     | integer   | not null, foreign key
+
+## reviews
+column name | data type | details
+------------|-----------|-----------------------
+id          | integer   | not null, primary key
+body        | text      | not null
+user_id     | integer   | not null, foreign key
+game_id     | integer   | not null, foreign key
+
 
 ## tag
 column name    | data type | details
@@ -51,18 +69,3 @@ email           | string    | not null, unique
 password_digest | string    | not null
 session_token   | string    | not null, unique
 
-## ratings
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-rating      | integer   | not null
-user_id     | integer   | not null, foreign key
-game_id     | integer   | not null, foreign key
-
-## reviews
-column name | data type | details
-------------|-----------|-----------------------
-id          | integer   | not null, primary key
-body        | text      | not null
-user_id     | integer   | not null, foreign key
-game_id     | integer   | not null, foreign key
