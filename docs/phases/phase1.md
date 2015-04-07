@@ -1,27 +1,26 @@
-# Phase 1: User Authentication, Basic Blogs and Posts
+# Phase 1: User Accounts and Authentication
 
 ## Rails
 ### Models
-* Game
+* User
 
 ### Controllers
-* StaticPagesController (show)
-* Api::GamesController (show)
+* UsersController
+* SessionsController
+* StaticPagesController
 
 ### Views
-* games/show.json.jbuilder
-* root.html.erb
-* games/index.html.erb
+* users/new.html.erb
+* session/new.html.erb
+* static\_pages/root.html.erb
 
 ## Backbone
 ### Models
-* Game
 
 ### Collections
-* Games
 
 ### Views
-* GameShow
+
+### Additional Templates
 
 ## Gems/Libraries
-
