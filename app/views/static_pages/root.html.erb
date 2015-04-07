@@ -2,8 +2,12 @@
 <div id="#content">
 </div>
 
+<h2> Welcome to SideTable </h2>
+
 <footer> </footer>
 
-<script>
-  currentUser = <%= current_user %>
+<script type="text/javascript">
+  currentUserEmail = "<%= current_user.email %>"
+  currentUserId = "<%= current_user.id %>"
+  currentUserName = "<%= current_user.name %>"
 </script>
