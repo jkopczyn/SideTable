@@ -3,7 +3,8 @@
 ## Rails
 ### Models
 * Game
-* Shelves
+* Shelf
+* Shelving
 
 ### Controllers
 * Api::GamesController (show, index)

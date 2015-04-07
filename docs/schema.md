@@ -1,18 +1,5 @@
 # Schema Information
 
-## collections
-column name    | data type | details
----------------|-----------|-----------------------
-id             | integer   | not null, primary key
-title          | string    | not null
-user_id        | integer   | not null, foreign key (references users)
-
-## collection_membership
-column name    | data type | details
----------------|-----------|-----------------------
-id             | integer   | not null, primary key
-collection_id  | integer   | not null, foreign key
-game_id        | integer   | not null, foreign key
 
 
 ## friendships (probably bonus-only)
@@ -45,6 +32,20 @@ id          | integer   | not null, primary key
 body        | text      | not null
 user_id     | integer   | not null, foreign key
 game_id     | integer   | not null, foreign key
+
+## shelves
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+title          | string    | not null
+user_id        | integer   | not null, foreign key
+
+## shelvings
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+shelf_id       | integer   | not null, foreign key
+game_id        | integer   | not null, foreign key
 
 
 ## tag
