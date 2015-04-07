@@ -11,10 +11,10 @@ built on Rails and Backbone. Users can:
 <!-- This is a Markdown checklist. Use it to keep track of your
 progress! -->
 
+- [x] Create Accounts
+- [x] Log In
 - [ ] View game details with ratings and reviews
 - [ ] Search for games by name
-- [ ] Create Accounts
-- [ ] Log In
 - [ ] Add games to their collection
 - [ ] Rate games
 - [ ] Review games
