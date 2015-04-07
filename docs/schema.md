@@ -1,6 +1,21 @@
 # Schema Information
 
-## friendships
+## collections
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+title          | string    | not null
+user_id        | integer   | not null, foreign key (references users)
+
+## collection_membership
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+collection_id  | integer   | not null, foreign key
+game_id        | integer   | not null, foreign key
+
+
+## friendships (probably bonus-only)
 column name    | data type | details
 ---------------|-----------|-----------------------
 id             | integer   | not null, primary key
@@ -13,6 +28,20 @@ column name | data type | details
 id          | integer   | not null, primary key
 title       | string    | not null
 image_url   | string    | 
+
+## tag
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+title          | string    | not null, unique
+
+## tagging
+column name    | data type | details
+---------------|-----------|-----------------------
+id             | integer   | not null, primary key
+tag_id         | integer   | not null, foreign_key
+game_id        | integer   | not null, foreign_key
+number_of_tags | integer   | not null
 
 ## users
 column name     | data type | details
