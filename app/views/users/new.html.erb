@@ -1,0 +1,6 @@
+<%= form_for :user, url: {controller: :users, action: :create}  do |f| %>
+  Email: <%= f.text_field :email %>
+  Password: <%= f.password_field :password %>
+  <%= f.submit %>
+<% end %>
+
