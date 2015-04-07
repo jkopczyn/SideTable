@@ -2,30 +2,27 @@
 
 ## Rails
 ### Models
-Friendship
+Tags
+Taggings
 
 ### Controllers
-Api::FriendshipsController (create, update, destroy, show, index)
-Api:UsersController (update, show)
+Api:TagsController (create, show, index)
+Api:TaggingsController (create, destroy, update, index)
 
 ### Views
-users/show.json.jbuilder (include friendships)
-friendships/\_friendship.json.jbuilder
-friendships/index.json.jbuilder
-friendships/show.json.jbuilder
+games/index.json.jbuilder (add search by tags)
+tags/\_tags.json.jbuilder (used by games association)
+tags/index.json.jbuilder
 
 ## Backbone
 ### Models
-Friendship
+Tag
 
 ### Collections
-Friendships
+Tags
 
 ### Views
-* UserShow
-* UserForm
-* UsersIndex
-* UserIndexItem
+* GameShow (update to include tags and tag creation)
+* GameIndex (update to include search options)
 
 ## Gems/Libraries
-* Filepicker

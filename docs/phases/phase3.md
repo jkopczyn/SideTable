@@ -2,29 +2,28 @@
 
 ## Rails
 ### Models
-* User
 
 ### Controllers
-* UsersController
-* SessionsController
 * Api:UsersController
 
 ### Views
-* users/new.html.erb
-* session/new.html.erb
+* users/show.json.jbuilder
 
 ## Backbone
 ### Models
 * User
 
 ### Collections
-Users
+* Users
+* Shelves
 
 ### Views
-* CollectionShowLong
+* UserShow
+* ShelfShowLong
 * GamesIndexLong
 
 ### Additional Templates
 * GameItemLong
+* ShelfIndex (used exclusively within UserShow)
 
 ## Gems/Libraries

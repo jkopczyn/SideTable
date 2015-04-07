@@ -2,22 +2,31 @@
 
 ## Rails
 ### Models
+* Game
+* Shelves
 
 ### Controllers
-* Api::GamesController (index)
+* Api::GamesController (show, index)
+* Api:ShelvesController
 
 ### Views
-* gamess/index.json.jbuilder
+* games/index.json.jbuilder
+* games/show.json.jbuilder
+* shelves/show.json.jbuilder
+* shelves/\_shelf.json.jbuilder
 
 ## Backbone
 ### Models
-Collection (of games; may use the name Shelf instead)
+* Shelf
+* Game
 
 ### Collections
+* Games
 
 ### Views
-* CollectionShowShort
+* ShelfShowShort
 * GamesIndexShort
+* GameShow
 
 ### Additional Templates
 * Navbar
@@ -25,3 +34,4 @@ Collection (of games; may use the name Shelf instead)
 * GameItemShort
 
 ## Gems/Libraries
+* Filepicker
