@@ -1,4 +1,4 @@
-# Phase 3: User Accounts and Authentication
+# Phase 3: User Collections
 
 ## Rails
 ### Models
