@@ -1,4 +1,4 @@
-# Phase 5: Searching for Blogs and Posts
+# Phase 6: Search users, add friends, and view profiles
 
 ## Rails
 ### Models
@@ -22,10 +22,9 @@ Friendship
 Friendships
 
 ### Views
-* UserShow
+* UserShow (to include more detail)
 * UserForm
 * UsersIndex
 * UserIndexItem
 
 ## Gems/Libraries
-* Filepicker

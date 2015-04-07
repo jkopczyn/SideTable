@@ -64,12 +64,13 @@ view will show the aggregate rating.
 
 [Details][phase-four]
 
-### Phase 5: Tag games and search by tags (~ 2.5 days)
+### Phase 5: Tag Games and Search By Tags (~ 2.5 days)
 I will add Tag models in rails and Tagging join tables in the database
 to track which games have been tagged with what, and how many times. I
 will add the ability to search for games by tags in addition to name,
 and add to the search view in Backbone to give search options and to the
-game view to add tags.
+game view to add tags. Finally, I will add the ability for users to
+create games.
 
 [Details][phase-five]
 
