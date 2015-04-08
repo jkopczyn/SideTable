@@ -16,6 +16,7 @@ id          | integer   | not null, primary key
 title       | string    | not null
 designer    | string    |
 image_url   | string    | 
+description | text      |
 
 ## ratings
 column name | data type | details

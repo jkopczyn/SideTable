@@ -9,8 +9,8 @@ Rails.application.routes.draw do
    resources :users, only: [:new, :create]
 
    namespace :api, defaults: {format: :json} do
-     resources :games, only: [:show, :index]
-     resources :shelves, only: [:show] do
+     resources :games, only: [:show, :index, :update]
+     resources :shelves, only: [:show, :update] do
        resources :games, only: [:index]
      end
    end
