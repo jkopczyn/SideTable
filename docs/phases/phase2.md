@@ -13,6 +13,7 @@
 ### Views
 * games/index.json.jbuilder
 * games/show.json.jbuilder
+* games/\_game.json.jbuilder
 * shelves/show.json.jbuilder
 * shelves/\_shelf.json.jbuilder
 

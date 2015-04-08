@@ -3,6 +3,9 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   after_initialize :ensure_session_token
 
+  has_many :shelves
+  has_many :games, through: :shelves
+
   attr_reader :password
   validates :password, length: {minimum: 6, allow_nil: true }
 
