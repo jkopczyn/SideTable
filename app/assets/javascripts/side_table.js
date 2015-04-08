@@ -4,7 +4,10 @@ window.SideTable = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    this._router = new SideTable.Routers.Router({
+      $rootEl: $('#content'),
+    });
+    $(Backbone.history.start());
   }
 };
 

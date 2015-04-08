@@ -1,0 +1,12 @@
+<h2><%= game.get('title') %></h2>
+<div class="game-image">
+  <img src="<%= game.escape('image_url') %>">
+  </img>
+</div>
+<div class="game-description">
+  <% if(game.escape('description')) { %>
+    <h3> Description: </h3>
+    <%= game.escape('description') %>
+  <% } %>
+</div>
+<a href="javascript:void(0)" class="back-button">Back to Shelf</a>
