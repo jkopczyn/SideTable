@@ -39,7 +39,10 @@ group :development, :test do
   gem 'byebug'
   gem 'better_errors'
   gem 'binding_of_caller'
-
+ 
+  #Turn current database into seed data with rake db:seed:dump
+  gem 'seed_dump'
+  
   # Access an IRB console on exception pages or by using <%= console %> in views
   gem 'web-console', '~> 2.0'
 
