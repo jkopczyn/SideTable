@@ -3,8 +3,10 @@ SideTable.Collections.Games = Backbone.Collection.extend({
   model: SideTable.Models.Game,
   url: "api/games",
 
-  initialize: function(){
+  initialize: function(options){
+    options = options || {};
     this.getWithFetch = this.getOrFetch;
+    this.queryObject = (options.search && options.search.query) || {}
   },
 
   getOrFetch: function(id) {
@@ -18,6 +20,7 @@ SideTable.Collections.Games = Backbone.Collection.extend({
           this.add(game);
           game.save()
         }.bind(this),
+        data: this.queryObject,
       });
     }
     return game;
