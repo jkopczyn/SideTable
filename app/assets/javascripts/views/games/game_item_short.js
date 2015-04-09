@@ -2,6 +2,7 @@ SideTable.Views.GameItemShort = Backbone.View.extend({
 
   template: JST['games/item_short'],
   tagName: "li",
+  className: "game-item-short clearfix",
 
   initialize: function(options) {
     this.listenTo(

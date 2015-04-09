@@ -22,10 +22,4 @@ SideTable.Collections.Games = Backbone.Collection.extend({
     }
     return game;
   },
-
-  parse: function(response) {
-    //parse elements
-    return response;
-  },
-
 });
