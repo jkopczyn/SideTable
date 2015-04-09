@@ -20,9 +20,10 @@ SideTable.Collections.Games = Backbone.Collection.extend({
           this.add(game);
           game.save()
         }.bind(this),
-        data: this.queryObject,
       });
     }
     return game;
   },
 });
+
+//data: { search: this.queryObject }
