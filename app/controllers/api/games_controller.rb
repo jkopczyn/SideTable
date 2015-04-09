@@ -7,7 +7,6 @@ class Api::GamesController < ApplicationController
   end
 
   def index
-    debugger
     if params[:shelf_id]
       @games = Shelf.find(params[:shelf_id]).games
     else
