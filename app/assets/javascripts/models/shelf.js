@@ -2,13 +2,21 @@ SideTable.Models.Shelf = Backbone.Model.extend({
   urlRoot: "api/shelves",
 
   initialize: function(options) {
-    this.games = options.games;
+    this.games().set(options.games);
+  },
+
+  games: function() {
+    if (!this._games){
+      this._games = new SideTable.Collections.Games({ shelf: this });
+    }
+    return this._games;
   },
 
   parse: function(response) {
-    //deal with attached games here:
-    //stick them into a collection,
-    //then set this.games to be that collection
+    if (response.games) {
+      this.games().set(response.games);
+      delete response.games;
+    }
     return response;
   },
 

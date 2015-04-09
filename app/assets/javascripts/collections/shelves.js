@@ -12,7 +12,7 @@ SideTable.Collections.Shelves = Backbone.Collection.extend({
     if(game) {
       game.fetch();
     } else {
-      game = new SideTable.Models.Game({ id: id });
+      game = new SideTable.Models.Shelf({ id: id });
       game.fetch({
         success: function(response) {
           this.add(game);

@@ -24,7 +24,7 @@ SideTable.Routers.Router = Backbone.Router.extend({
   },
 
   showShelf: function(id) {
-    var v = new SideTable.Views.ShelfShowShort({
+    var v = new SideTable.Views.ShelfShowLong({
       model: this.shelves.getOrFetch(id)
     });
   },
