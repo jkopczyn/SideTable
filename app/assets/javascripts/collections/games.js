@@ -37,5 +37,3 @@ SideTable.Collections.Games = Backbone.Collection.extend({
     }
   },
 });
-
-//data: { search: this.queryObject }

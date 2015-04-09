@@ -9,6 +9,8 @@ class Api::GamesController < ApplicationController
   def index
     if params[:shelf_id]
       @games = Shelf.find(params[:shelf_id]).games
+    elsif params[:query]
+      @games = Game.where(*query_args(params[:query]))
     else
       @games = Game.all
     end
@@ -34,8 +36,16 @@ class Api::GamesController < ApplicationController
   end
 
   private
+
+  GAME_FIELDS = [:id, :title, :designer, :image_url, :description]
+
   def game_params
-    params.require(:game).permit(:id, :title, :designer, 
-                                 :image_url, :description)
+    params.require(:game).permit(*GAME_FIELDS)
+  end
+
+  def query_args(query_hash)
+    keys = query_hash.keys & GAME_FIELDS.map(&:to_s)
+    fields = keys.map { |key| "#{key} = :#{key}" }.join(" and ")
+    return [fields, query_hash]
   end
 end
