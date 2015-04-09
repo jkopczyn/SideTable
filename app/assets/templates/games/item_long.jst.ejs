@@ -1,0 +1,11 @@
+<% var size= 250 %>
+<img class="game-item-long-icon" src="<%= game.escape('image_url') %>" 
+     width="<%= size %>" height="<%= size %>"></img>
+<div class="game-item-long-description">
+  <h3> <%= game.escape('title') %> </h3>
+  <% if( game.escape('designer')) { %>
+    <p> Designed by <%= game.escape('designer') %> </p>
+  <% } %>
+<p> <%= game.escape('description') %> </p>
+</div>
+
