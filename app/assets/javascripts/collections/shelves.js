@@ -23,7 +23,8 @@ SideTable.Collections.Shelves = Backbone.Collection.extend({
     return game;
   },
 
-  allGames: function() {
+  allGames: function(options) {
     debugger
+    //pass options down to Collections.Games constructor
   }
 });
