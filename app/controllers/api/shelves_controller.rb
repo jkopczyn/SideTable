@@ -5,8 +5,10 @@ class Api::ShelvesController < ApplicationController
     render :show
   end
 
-  #def index
-  #end
+  def index
+    @shelves = current_user.shelves
+    render :index
+  end
   
   #def create
   #end

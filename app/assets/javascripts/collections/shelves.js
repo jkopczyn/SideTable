@@ -1,5 +1,29 @@
 SideTable.Collections.Shelves = Backbone.Collection.extend({
 
-  model: SideTable.Models.Shelf
+  url: "/api/shelves",
+  model: SideTable.Models.Shelf,
 
+  initialize: function(options) {
+    this.getWithFetch = this.getOrFetch;
+  },
+
+  getOrFetch: function(id) {
+    var game = this.get(id);
+    if(game) {
+      game.fetch();
+    } else {
+      game = new SideTable.Models.Game({ id: id });
+      game.fetch({
+        success: function(response) {
+          this.add(game);
+          game.save()
+        }.bind(this),
+      });
+    }
+    return game;
+  },
+
+  allGames: function() {
+    debugger
+  }
 });
