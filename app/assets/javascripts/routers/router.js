@@ -12,7 +12,7 @@ SideTable.Routers.Router = Backbone.Router.extend({
     "games/search/:params": "showFullSearch",
     "shelves/new": "newShelf",
     "shelves/search/:params": "showShelfSearch",
-    "shelves/:shelf_id": "showShelf",
+    "shelves/:id": "showShelf",
     "games/:id": "showGame",
   },
 
@@ -27,6 +27,7 @@ SideTable.Routers.Router = Backbone.Router.extend({
     var v = new SideTable.Views.ShelfShowLong({
       model: this.shelves.getOrFetch(id)
     });
+    this._swapView(v);
   },
 
   allGames: function() {

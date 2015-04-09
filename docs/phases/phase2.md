@@ -24,16 +24,17 @@
 
 ### Collections
 * Games
+* Shelves
 
 ### Views
 * ShelfShowShort
+* ShelfShowLong
 * GamesIndexShort
 * GameShow
-
-### Additional Templates
+* GameItemShort
+* GameItemLong
 * Navbar
 * SearchBar
-* GameItemShort
 
 ## Gems/Libraries
 * Filepicker

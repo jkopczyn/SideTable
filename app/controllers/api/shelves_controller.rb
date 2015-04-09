@@ -13,6 +13,17 @@ class Api::ShelvesController < ApplicationController
   #def create
   #end
 
-  #def update
-  #end
+  def update
+    @shelf = Shelf.find(params[:id])
+    if @shelf.update(shelf_params)
+      render :show
+    else
+      render json: @shelf.errors.full_messages, status: 422
+    end
+  end
+
+  private
+  def shelf_params
+    params.require(:shelf).permit(:title, :user_id)
+  end
 end
