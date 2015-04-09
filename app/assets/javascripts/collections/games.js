@@ -24,6 +24,18 @@ SideTable.Collections.Games = Backbone.Collection.extend({
     }
     return game;
   },
+  
+  fetch: function(options) {
+    options = options || {};
+    options.data = options.data || {};
+    if (!this.queryObject || $.isEmptyObject(this.queryObject)) {
+      Backbone.Collection.prototype.fetch.call(this, options);
+    } else {
+      var quObj = _.extend(this.queryObject, options.data.query || {});
+      options.data.query = quObj;
+      Backbone.Collection.prototype.fetch.call(this, options);
+    }
+  },
 });
 
 //data: { search: this.queryObject }
