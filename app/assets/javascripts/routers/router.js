@@ -10,7 +10,7 @@ SideTable.Routers.Router = Backbone.Router.extend({
   routes: {
     "": "allGames",
     "games": "allGames",
-    "games/search/:params": "showFullSearch",
+    "games/search?:params": "showFullSearch",
     "shelves/new": "newShelf",
     "shelves/search?:params": "showShelfSearch",
     "shelves/:id": "showShelf",
@@ -44,18 +44,18 @@ SideTable.Routers.Router = Backbone.Router.extend({
     if (params) {
       search = new SideTable.Models.Search({queryString: params});
       games = new SideTable.Collections.Games({search: search});
-      fail
     }
-    var v = SideTable.Views.GameIndexShort({
+    var v = new SideTable.Views.GamesIndexShort({
       collection: games,
     });
     this._swapView(v);
+    games.fetch();
   },
 
   showShelfSearch: function(params) {
 //    TODO
 //    var search = new SideTable.Models.Search({queryString: params});
-//    var v = SideTable.Views.ShelfSearch({
+//    var v = new SideTable.Views.ShelfSearch({
 //      collection: this.shelves.allGames(),
 //    });
 //    this._swapView(v);

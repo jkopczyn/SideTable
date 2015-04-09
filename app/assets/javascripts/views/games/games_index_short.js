@@ -5,7 +5,8 @@ SideTable.Views.GamesIndexShort = Backbone.CompositeView.extend({
   initialize: function(options) {
     this.listenTo(this.collection, "sync remove change:title", this.render);
     this.listenTo(this.collection, "add", this.addGame);
-    this.collection.each(this.addGame);
+    this.listenTo(this.collection, "remove", this.removeGame);
+    this.collection.each(this.addGame.bind(this));
   },
 
   render: function() {
@@ -19,5 +20,14 @@ SideTable.Views.GamesIndexShort = Backbone.CompositeView.extend({
   addGame: function(game) {
       var view = new SideTable.Views.GameItemShort({ model: game });
       this.addSubview('.game-index-short', view);
+  },
+
+  removeGame: function(game) {
+    var selector = '.game-index-short'
+    _(this.subviews(selector)).each(function (subview) {
+      if(subview.model == game) {
+        this.removeSubview(selector, subview);
+      }
+    }.bind(this));
   },
 });
