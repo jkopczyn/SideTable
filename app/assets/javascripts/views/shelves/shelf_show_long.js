@@ -10,7 +10,6 @@ SideTable.Views.ShelfShowLong = SideTable.Views.GameSearchView.extend({
     SideTable.Views.GameSearchView.prototype.initialize.apply(this,arguments);
   },
 
-
   render: function() {
     return SideTable.Views.GameSearchView.prototype.render.call(
       this, { shelf: this.model })
