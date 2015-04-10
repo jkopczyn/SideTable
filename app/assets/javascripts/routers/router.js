@@ -40,16 +40,18 @@ SideTable.Routers.Router = Backbone.Router.extend({
   },
 
   showFullSearch: function(params) {
-    var search = undefined, games = this.games;
-    if (params) {
-      search = new SideTable.Models.Search({queryString: params});
-      games = new SideTable.Collections.Games({search: search});
-    }
     var v = new SideTable.Views.GamesIndexShort({
-      collection: games,
+      collection: new SideTable.Collections.Games(),
     });
     this._swapView(v);
-    games.fetch();
+    v.loadSearch(params);
+    //    var search, games;
+    //if (params) {
+    //  search = new SideTable.Models.Search({queryString: params});
+    //  games = new SideTable.Collections.Games({search: search});
+    //} else {
+    //  games = this.games;
+    //}
   },
 
   showShelfSearch: function(params) {
