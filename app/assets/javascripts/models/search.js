@@ -6,16 +6,6 @@ SideTable.Models.Search = Backbone.Model.extend({
     this.query = this.get('query');
   },
 
-  save: function() {
-    //Searches should not be saved
-    return null;
-  },
-
-  sync: function() {
-    //Searches should not be synced
-    return null;
-  },
-
   parseQuery : function(params) {
     var strings = params.split("&");
     var query = {}
@@ -24,10 +14,6 @@ SideTable.Models.Search = Backbone.Model.extend({
       query[kv[0]]=kv[1];
     });
     return query
-  },
-
-  parse: function(response) {
-    return response
   },
 
 });
