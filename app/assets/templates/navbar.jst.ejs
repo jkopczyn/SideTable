@@ -1,8 +1,8 @@
-<div class="logo">
+<div class="navbar-logo">
   <h1>SideTable</h1>
 </div>
 <div class="navbar-links">
-  <ul class="navbar-links-list">
+  <ul class="navbar-links-list clearfix">
     <li class="navbar-link"><a href="#/things">Stuff</a></li>
     <li class="navbar-link"><a href="#/things">Stuff</a></li>
     <li class="navbar-link"><a href="#/things">Stuff</a></li>
@@ -15,5 +15,12 @@
   </div>
 <% } else { %>
   <div class="navbar-notifiers">
+    <form method="post" action="/session" class="button_to sign-out">
+      <input type="hidden" 
+             name="authenticity_token"
+             value="<%= $('meta[name="csrf-token"]').attr('content') %>" >
+      <input type="hidden" name="_method" value="delete" />
+      <div><input value="Log Out" type="submit" /></div>
+    </form>
   </div>
 <% } %>
