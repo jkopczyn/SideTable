@@ -1,8 +1,9 @@
-<div class="sign-in">
+<div class="sign-up">
+  <h2>Sign Up</h2>
   <%= form_for :user, url: {controller: :users, action: :create}  do |f| %>
     Email: <%= f.text_field :email %> <br>
     Password: <%= f.password_field :password %> <br>
-    <%= f.submit "Log In" %>
+    <%= f.submit "Sign Up!" %>
   <% end %>
 </div>
 <div id="content">
