@@ -1,5 +1,6 @@
 SideTable.Collections.Users = Backbone.Collection.extend({
 
-  model: SideTable.Models.User
+  url: "/api/users",
+  model: SideTable.Models.User,
 
 });
