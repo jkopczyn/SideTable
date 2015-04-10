@@ -1,25 +1,18 @@
-SideTable.Views.ShelfShowLong = Backbone.CompositeView.extend({
+SideTable.Views.ShelfShowLong = SideTable.Views.GameSearchView.extend({
 
   template: JST['shelves/show_long'],
 
   initialize: function(options) {
-    this.listenTo(this.model, "sync change:title", this.render);
-    this.listenTo(this.model.games(), "remove sync", this.render);
-    this.listenTo(this.model.games(), "add", this.addGame);
+    this.itemView = SideTable.Views.GameItemLong;
+    this.selector = ".shelf-show-long";
+    this.collection = this.model.games();
 
-    this.model.games().each(this.addGame);
+    SideTable.Views.GameSearchView.prototype.initialize.apply(this,arguments);
   },
+
 
   render: function() {
-    this.$el.html(this.template({
-      shelf: this.model 
-    }));
-    this.attachSubviews();
-    return this;
-  },
-
-  addGame: function(game) {
-      var view = new SideTable.Views.GameItemLong({ model: game });
-      this.addSubview('.shelf-show-long', view);
+    return SideTable.Views.GameSearchView.prototype.render.call(
+      this, { shelf: this.model })
   },
 });
