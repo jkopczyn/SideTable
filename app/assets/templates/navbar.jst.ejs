@@ -1,0 +1,19 @@
+<div class="logo">
+  <h1>SideTable</h1>
+</div>
+<div class="navbar-links">
+  <ul class="navbar-links-list">
+    <li class="navbar-link"><a href="#/things">Stuff</a></li>
+    <li class="navbar-link"><a href="#/things">Stuff</a></li>
+    <li class="navbar-link"><a href="#/things">Stuff</a></li>
+    <li class="navbar-link"><a href="#/things">Stuff</a></li>
+  </ul>
+</div>
+<% if (typeof CurrentUser === "undefined" || $.isEmptyObject(CurrentUser)) { %>
+  <div class="sign-up">
+    <a href="/users/new">Sign Up!</a>
+  </div>
+<% } else { %>
+  <div class="navbar-notifiers">
+  </div>
+<% } %>
