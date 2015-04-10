@@ -34,8 +34,6 @@ SideTable.Views.GameSearchView = Backbone.CompositeView.extend({
   removeGame: function(game) {
     var subviews = _.clone(this.subviews(this.selector));
     _(subviews).each(function (subview) {
-      console.log(subviews);
-      console.log(subview);
       if(subview.model == game) {
         this.removeSubview(this.selector, subview);
       }

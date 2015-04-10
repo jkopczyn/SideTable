@@ -3,6 +3,7 @@ SideTable.Models.Shelf = Backbone.Model.extend({
 
   initialize: function(options) {
     this.games().set(options.games);
+    this.collection = options.collection;
   },
 
   games: function() {

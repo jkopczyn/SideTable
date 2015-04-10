@@ -5,6 +5,7 @@ SideTable.Collections.Shelves = Backbone.Collection.extend({
 
   initialize: function(options) {
     this.getWithFetch = this.getOrFetch;
+    this.user_id = options.user_id;
   },
 
   getOrFetch: function(id) {
