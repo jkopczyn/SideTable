@@ -1,8 +1,13 @@
 <% var size= 100 %>
-<img class="game-item-short-icon" src="<%= game.escape('image_url') %>" 
+<% var url="#games/"+game.id+"" %>
+<a href="<%= url %>">
+  <img class="game-item-short-icon" src="<%= game.escape('image_url') %>" 
      width="<%= size %>" height="<%= size %>"></img>
+</a>
 <div class="game-item-short-description">
-  <h4> <%= game.escape('title') %> </h4>
+  <a href="<%= url %>">
+    <h4> <%= game.escape('title') %> </h4>
+  </a>
   <p> <%= game.escape('description') %> </p>
 </div>
 

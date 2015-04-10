@@ -32,8 +32,6 @@ SideTable.Views.GamesIndexShort = Backbone.CompositeView.extend({
     var selector = '.game-index-short'
     var subviews = _.clone(this.subviews(selector));
     _(subviews).each(function (subview) {
-      console.log(subviews);
-      console.log(subview);
       if(subview.model == game) {
         this.removeSubview(selector, subview);
       }

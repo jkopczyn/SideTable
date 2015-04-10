@@ -1,6 +1,8 @@
 <h2><%= game.get('title') %></h2>
+<% var large_size = "250px" %>
 <div class="game-image">
-  <img src="<%= game.escape('image_url') %>">
+  <img src="<%= game.escape('image_url') %>" 
+       height="<%= large_size %>" width="<%= large_size %>">
   </img>
 </div>
 <div class="game-description">
