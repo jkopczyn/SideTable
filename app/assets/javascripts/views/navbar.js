@@ -1,6 +1,7 @@
 SideTable.Views.Navbar = Backbone.View.extend({
 
   template: JST['navbar'],
+  className: "navbar clearfix",
 
   events: {
     "click .logo": "goHome",
@@ -14,4 +15,5 @@ SideTable.Views.Navbar = Backbone.View.extend({
   goHome: function() {
     Backbone.history.navigate("/", {trigger: true});
   },
+
 });
