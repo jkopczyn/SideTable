@@ -3,8 +3,10 @@ SideTable.Routers.Router = Backbone.Router.extend({
   initialize: function(options) {
     this.$rootEl = options.$rootEl;
     //current user's shelves, but *all* games
-    this.shelves = new SideTable.Collections.Shelves();
     this.games = new SideTable.Collections.Games();
+      this.shelves = new SideTable.Collections.Shelves({user_id: CurrentUser.id});
+      this.user = new SideTable.Models.User({id: CurrentUser.id });
+    
   },
 
   routes: {
@@ -28,8 +30,10 @@ SideTable.Routers.Router = Backbone.Router.extend({
   },
 
   showShelf: function(id) {
+    shelf = this.shelves.getOrFetch(id);
+    shelf.collection = this.shelves;
     var v = new SideTable.Views.ShelfShowLong({
-      model: this.shelves.getOrFetch(id)
+      model: shelf
     });
     this._swapView(v);
   },
@@ -64,6 +68,11 @@ SideTable.Routers.Router = Backbone.Router.extend({
     //  collection: this.shelves.allGames(),
     //});
     //this._swapView(v);
+  },
+
+  userHome: function() {
+    var user = this.user;
+    var shelf = this.shelves.first();
   },
 
   _swapView: function(view) {

@@ -1,0 +1,8 @@
+<% if (shelves.length > 0) { %>
+  <h4>All Shelves</h4>
+  <ul class="shelf-index-list">
+  </ul>
+<% } %>
+<% if( shelves.user_id === CurrentUser.id ) { %>
+  <a href="#/shelves/new" class="new-shelf">Add Another Shelf</a>
+<% } %>
