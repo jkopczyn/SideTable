@@ -20,7 +20,7 @@ SideTable.Views.GameSearchView = Backbone.CompositeView.extend({
   },
 
   render: function(options) {
-    //if you need other 
+    //if you need other things do them first and then return the super
     this.$el.html(this.template(_.extend({ games: this.collection }, options)));
     this.attachSubviews();
     return this;

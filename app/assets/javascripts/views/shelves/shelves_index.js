@@ -14,6 +14,12 @@ SideTable.Views.ShelvesIndex = Backbone.CompositeView.extend({
     this.collection.each(this.addShelf.bind(this));
   },
 
+  events: {
+    "click .new-shelf a": "attachNewForm",
+    "submit .shelf-form": "handleNewSubmit",
+  },
+
+
   render: function() {
     this.$el.html(this.template({shelves: this.collection }));
     this.attachSubviews();
@@ -33,5 +39,22 @@ SideTable.Views.ShelvesIndex = Backbone.CompositeView.extend({
         this.removeSubview(this.selector, subview);
       }
     }.bind(this));
+  },
+
+  attachNewForm: function(event) {
+    event.preventDefault();
+    this.$(".new-shelf").empty();
+    this.addSubview(".new-shelf", new SideTable.Views.ShelfForm())
+  },
+
+  handleNewSubmit: function(event) {
+    event.preventDefault();
+    var newModel = this.$(".new-shelf").serializeJSON();
+    this.collection.create(newModel, { wait: true, 
+      success: function(response) {
+        Backbone.history.navigate("#/shelves/"+newModel.id+"");
+      }
+    });
+    this.$('text').val('');
   },
 });
