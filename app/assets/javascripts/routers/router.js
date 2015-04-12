@@ -71,8 +71,12 @@ SideTable.Routers.Router = Backbone.Router.extend({
   },
 
   userHome: function() {
-    var user = this.user;
-    var shelf = this.shelves.first();
+    shelf = new SideTable.Models.Shelf({collection: this.shelves});
+    shelf.collection = this.shelves;
+    var v = new SideTable.Views.ShelfIndexLong({
+      model: shelf
+    });
+    this._swapView(v);
   },
 
   _swapView: function(view) {
