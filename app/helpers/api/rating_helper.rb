@@ -1,0 +1,2 @@
+module Api::RatingHelper
+end

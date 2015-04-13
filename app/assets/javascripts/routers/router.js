@@ -4,9 +4,8 @@ SideTable.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     //current user's shelves, but *all* games
     this.games = new SideTable.Collections.Games();
-      this.shelves = new SideTable.Collections.Shelves({user_id: CurrentUser.id});
-      this.user = new SideTable.Models.User({id: CurrentUser.id });
-    
+    this.shelves = new SideTable.Collections.Shelves({user_id: CurrentUser.id});
+    this.user = new SideTable.Models.User({id: CurrentUser.id });
   },
 
   routes: {
