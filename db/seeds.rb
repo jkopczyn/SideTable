@@ -3,6 +3,16 @@ Game.create!([
   {title: "Firefly", image_url: "http://a.tgcdn.net/images/products/additional/large/1263_firefly_board_game_setup.jpg", designer: nil, description: "\"Find a job. Find a crew. Keep Flying.\" Based on the cult science fiction television show."},
   {title: "Memeopoly", image_url: "http://gadgetsin.com/uploads/2011/03/memeopoly_internet_themed_monopoly_board_game.jpg", designer: "Anonymous", description: "It's from the Internet. Just be glad it won't try to label your cats."}
 ])
+Rating.create!([
+  {user_id: 1, game_id: 1, rating: 5},
+  {user_id: 1, game_id: 2, rating: 5},
+  {user_id: 1, game_id: 3, rating: 0}
+])
+Review.create!([
+  {user_id: 1, game_id: 1, body: "Best game ever. Would play a million times. 6/5."},
+  {user_id: 1, game_id: 2, body: "Best game ever. Would play until the world was used up. 5/5."},
+  {user_id: 1, game_id: 3, body: "LOL would not recommend to my worst enemy"}
+])
 Shelf.create!([
   {title: "Geeky Games", user_id: 2},
   {title: "Design Games", user_id: 2},
