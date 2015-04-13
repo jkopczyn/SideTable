@@ -33,6 +33,7 @@ class ApplicationController < ActionController::Base
 
   def logout_user!
     @current_user.reset_session_token!
+    @current_user.destroy if @current_user.guest?
     @current_user = nil
     session[:session_token] = nil
   end
