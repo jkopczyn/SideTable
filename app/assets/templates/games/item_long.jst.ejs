@@ -8,5 +8,11 @@
   <% } %>
 <p> <%= game.escape('description') %> </p>
 <p> <a href="#/games/<%= game.escape('id') %>">View Full Description</a></p>
+
+<small>
+  <a href="javascript:void(0)" class="remove-button">
+    Remove From This Shelf
+  </a>
+</small>
 </div>
 

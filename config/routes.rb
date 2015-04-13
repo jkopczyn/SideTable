@@ -8,6 +8,7 @@ Rails.application.routes.draw do
    resource :session, only: [:new, :create, :destroy]
    resources :users, only: [:new, :create]
 
+   delete 'api/shelving' => "api/shelvings#destroy_by_ids"
    namespace :api, defaults: {format: :json} do
      resources :shelvings, only: [:create, :destroy]
      resources :games, only: [:show, :index, :update]
