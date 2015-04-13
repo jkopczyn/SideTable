@@ -5,9 +5,11 @@
 
 ### Controllers
 * Api:UsersController
+* Api:ShelvingsController
 
 ### Views
 * users/show.json.jbuilder
+* shelvings/show.json.jbuilder
 
 ## Backbone
 ### Models
@@ -21,9 +23,7 @@
 * UserShow
 * ShelfShowLong
 * GamesIndexLong
-
-### Additional Templates
 * GameItemLong
-* ShelfIndex (used exclusively within UserShow)
+* ShelfIndexBox
 
 ## Gems/Libraries
