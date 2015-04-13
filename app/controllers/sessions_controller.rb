@@ -9,7 +9,12 @@ class SessionsController < ApplicationController
 
   def create
     credentials = [params[:user][:email], params[:user][:password]]
-    @user = User.find_by_credentials(*credentials)
+    if params[:user]
+      @user = User.find_by_credentials(*credentials)
+    else
+      @user = User.new_guest
+    end
+
     if @user
       login_user!(@user)
       redirect_to root_url

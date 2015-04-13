@@ -7,7 +7,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(user_params)
+    @user = params[:user] ? User.new(user_params) : User.new_guest
     if @user.save
       login_user!(@user)
       redirect_to root_url

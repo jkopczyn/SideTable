@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   after_initialize :ensure_session_token
 
-  has_many :shelves
+  has_many :shelves, dependent: :destroy
   has_many :games, through: :shelves
-  has_many :reviews
-  has_many :ratings
+  has_many :reviews, dependent: :destroy
+  has_many :ratings, dependent: :destroy
 
   attr_reader :password
   validates :password, length: {minimum: 6, allow_nil: true }
@@ -22,6 +22,10 @@ class User < ActiveRecord::Base
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64
+  end
+
+  def self.new_guest
+    return User.find(1);
   end
 
   def reset_session_token!
@@ -41,6 +45,10 @@ class User < ActiveRecord::Base
 
   def password_digest
     BCrypt::Password.new(super)
+  end
+
+  def guest?
+    false
   end
 
   private

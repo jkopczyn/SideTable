@@ -5,6 +5,8 @@
     Password: <%= f.password_field :password %> <br>
     <%= f.submit "Log In" %>
   <% end %>
+  <p><h3>Or Try It Out!</h3>
+  <%= button_to "Guest Login", users_path, method: :post %></p>
 </div>
 <div id="content">
 </div>
