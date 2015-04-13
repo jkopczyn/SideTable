@@ -1,6 +1,7 @@
-SideTable.Views.ShelvesIndex = Backbone.CompositeView.extend({
+SideTable.Views.ShelvesIndexBox = Backbone.CompositeView.extend({
 
-  template: JST['shelves/index'],
+  template: JST['shelves/index_box'],
+  url: "api/shelves",
 
   initialize: function() {
     this.listenTo(this.collection, "sync change", this.render);
@@ -10,12 +11,13 @@ SideTable.Views.ShelvesIndex = Backbone.CompositeView.extend({
     this.itemView = SideTable.Views.ShelfIndexItem;
     this.selector = ".shelf-index-list";
 
+    this.addNewLink();
     this.collection.fetch();
     this.collection.each(this.addShelf.bind(this));
   },
 
   events: {
-    "click .new-shelf a": "attachNewForm",
+    "click .new-shelf-link": "addNewForm",
     "submit .shelf-form": "handleNewSubmit",
   },
 
@@ -41,19 +43,32 @@ SideTable.Views.ShelvesIndex = Backbone.CompositeView.extend({
     }.bind(this));
   },
 
-  attachNewForm: function(event) {
-    event.preventDefault();
-    this.$(".new-shelf").empty();
-    this.addSubview(".new-shelf", new SideTable.Views.ShelfForm())
+  addNewForm: function(event) {
+    event && event.preventDefault();
+    var selector = ".new-shelf"
+    this.removeSubviews(selector);
+    this.addSubview(selector, new SideTable.Views.ShelfForm(
+      {userId: this.collection.user_id }
+    ));
+  },
+
+  addNewLink: function(event) {
+    event && event.preventDefault();
+    var selector = ".new-shelf"
+    this.removeSubviews(selector);
+    this.addSubview(selector, new SideTable.Views.NewShelfLink({}));
   },
 
   handleNewSubmit: function(event) {
     event.preventDefault();
-    var newModel = this.$(".new-shelf").serializeJSON();
+    var newModel = this.$(".shelf-form").serializeJSON();
     this.collection.create(newModel, { wait: true, 
       success: function(response) {
+        var selector = ".new-shelf";
+        this.removeSubviews(selector);
+        this.render();
         Backbone.history.navigate("#/shelves/"+newModel.id+"");
-      }
+      }.bind(this),
     });
     this.$('text').val('');
   },

@@ -11,8 +11,14 @@ class Api::ShelvesController < ApplicationController
     render :index
   end
   
-  #def create
-  #end
+  def create
+    @shelf = Shelf.new(shelf_params)
+    if @shelf.save
+      render :show
+    else
+      render json: @shelf.errors.full_messages, status: 422
+    end
+  end
 
   def update
     @shelf = Shelf.find(params[:id])
