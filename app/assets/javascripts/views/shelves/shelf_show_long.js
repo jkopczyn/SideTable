@@ -8,7 +8,7 @@ SideTable.Views.ShelfShowLong = SideTable.Views.GameSearchView.extend({
     this.collection = this.model.games();
     this.shelves = this.model.collection;
 
-    this.addSubview(".shelf-list", new SideTable.Views.ShelvesIndex(
+    this.addSubview(".shelf-list", new SideTable.Views.ShelvesIndexBox(
       {collection: this.shelves}));
 
     SideTable.Views.GameSearchView.prototype.initialize.apply(this,arguments);
