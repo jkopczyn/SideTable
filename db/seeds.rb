@@ -1,3 +1,7 @@
+User.create!([
+  {session_token: "2vst61OUojZmEMaIRQFhKg", password_digest: "$2a$10$1/NdWw78/EHM5b3J2Kdxi.iyrmrBQ1njzLH0w28/dC39kMffqxCtW", email: "bar@gmail.com", name: "John Doe"},
+  {session_token: "5nvIdE8MArHJzLwVAH0tdg", password_digest: "$2a$10$qftgE00xqTU8zlsPvrA72eyNUc3sZLbF3b0E1QvqrnuJSDkQ13sOC", email: "foo@gmail.com", name: "Jacob Kopczynski"}
+])
 Game.create!([
   {title: "Zaibatsu", image_url: "http://germainekoh.com/league/blog/wp-content/uploads/2013/12/boardgames.jpg", designer: "Jacob Kopczynski", description: "A fast-paced auction game for 2-4 players"},
   {title: "Firefly", image_url: "http://a.tgcdn.net/images/products/additional/large/1263_firefly_board_game_setup.jpg", designer: nil, description: "\"Find a job. Find a crew. Keep Flying.\" Based on the cult science fiction television show."},
@@ -24,8 +28,4 @@ Shelving.create!([
   {shelf_id: 2, game_id: 1},
   {shelf_id: 2, game_id: 3},
   {shelf_id: 3, game_id: 1}
-])
-User.create!([
-  {session_token: "2vst61OUojZmEMaIRQFhKg", password_digest: "$2a$10$1/NdWw78/EHM5b3J2Kdxi.iyrmrBQ1njzLH0w28/dC39kMffqxCtW", email: "bar@gmail.com", name: "John Doe"},
-  {session_token: "5nvIdE8MArHJzLwVAH0tdg", password_digest: "$2a$10$qftgE00xqTU8zlsPvrA72eyNUc3sZLbF3b0E1QvqrnuJSDkQ13sOC", email: "foo@gmail.com", name: "Jacob Kopczynski"}
 ])
