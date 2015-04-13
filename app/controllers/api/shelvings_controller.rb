@@ -1,9 +1,9 @@
-class Api::ShelvingController < ApplicationController
+class Api::ShelvingsController < ApplicationController
   before_action :require_logged_in 
   
   def create
-    @shelf = Shelf.find(shelving_params.shelf_id)
-    @game = Game.find(shelving_params.game_id)
+    @shelf = Shelf.find(shelving_params["shelf_id"])
+    @game = Game.find(shelving_params["game_id"])
     if ensure_owner(@shelf)
       Shelving.create({game: @game, shelf: @shelf});
       render :show
@@ -14,9 +14,10 @@ class Api::ShelvingController < ApplicationController
     if params[:id]
       @shelving = Shelving.find(params[:id])
       @shelf = @shelving.shelf
+      @game = @shelving.game
     else
-      @shelf = Shelf.find(shelving_params.shelf_id)
-      @game = Game.find(shelving_params.game_id)
+      @shelf = Shelf.find(shelving_params["shelf_id"])
+      @game = Game.find(shelving_params["game_id"])
       @shelving = Shelving.find_by_game_id_and_shelf_id(@game, @shelf)
     end
     if ensure_owner(@shelf)

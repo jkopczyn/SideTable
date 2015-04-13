@@ -1,0 +1,9 @@
+<% "" %>
+<select name="shelf_id">
+<% _.each(shelves, function(shelf) {  %>
+  <option value="<%= shelf.id %>">
+    <%= shelf.escape("title") %>
+  </option>
+<% }) %>
+</select>
+<input type="submit" value="Add To Shelf">
