@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408182150) do
+ActiveRecord::Schema.define(version: 20150413160146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -26,6 +26,28 @@ ActiveRecord::Schema.define(version: 20150408182150) do
   end
 
   add_index "games", ["title"], name: "index_games_on_title", using: :btree
+
+  create_table "ratings", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "game_id",    null: false
+    t.integer  "rating",     null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "ratings", ["game_id"], name: "index_ratings_on_game_id", using: :btree
+  add_index "ratings", ["user_id", "game_id"], name: "index_ratings_on_user_id_and_game_id", unique: true, using: :btree
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer  "user_id",    null: false
+    t.integer  "game_id",    null: false
+    t.text     "body",       null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "reviews", ["game_id"], name: "index_reviews_on_game_id", using: :btree
+  add_index "reviews", ["user_id", "game_id"], name: "index_reviews_on_user_id_and_game_id", unique: true, using: :btree
 
   create_table "shelves", force: :cascade do |t|
     t.string   "title",      null: false
