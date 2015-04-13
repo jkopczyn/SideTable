@@ -1,1 +1,1 @@
-json.array! @shelves, partial: 'api/shelves/shelf', as: :shelf
+json.array! @shelves, partial: 'api/shelves/shelf', as: :shelf, tree: false

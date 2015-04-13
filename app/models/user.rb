@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
 
   has_many :shelves
   has_many :games, through: :shelves
+  has_many :reviews
+  has_many :ratings
 
   attr_reader :password
   validates :password, length: {minimum: 6, allow_nil: true }
