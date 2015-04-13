@@ -11,17 +11,21 @@ class Api::ShelvingsController < ApplicationController
   end
 
   def destroy
-    if params[:id]
-      @shelving = Shelving.find(params[:id])
-      @shelf = @shelving.shelf
-      @game = @shelving.game
-    else
-      @shelf = Shelf.find(shelving_params["shelf_id"])
-      @game = Game.find(shelving_params["game_id"])
-      @shelving = Shelving.find_by_game_id_and_shelf_id(@game, @shelf)
-    end
+     @shelving = Shelving.find(params[:id])
+     @shelf = @shelving.shelf
+     @game = @shelving.game
     if ensure_owner(@shelf)
-      @shelf.destroy
+      @shelving.destroy
+      render :show
+    end
+  end
+
+  def destroy_by_ids
+    @shelf = Shelf.find(shelving_params["shelf_id"])
+    @game = Game.find(shelving_params["game_id"])
+    @shelving = Shelving.find_by_game_id_and_shelf_id(@game, @shelf)
+    if ensure_owner(@shelf)
+      @shelving.destroy
       render :show
     end
   end

@@ -18,4 +18,9 @@ SideTable.Views.ShelfShowLong = SideTable.Views.GameSearchView.extend({
     return SideTable.Views.GameSearchView.prototype.render.call(
       this, { shelf: this.model, shelves: this.shelves })
   },
+
+  addGame: function(game) {
+    var view = new this.itemView({ model: game, shelf: this.model });
+    this.addSubview(this.selector, view);
+  },
 });
