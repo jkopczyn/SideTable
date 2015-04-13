@@ -3,10 +3,10 @@ class User < ActiveRecord::Base
   validates :password_digest, presence: true
   after_initialize :ensure_session_token
 
-  has_many :shelves, dependent: :destroy
+  has_many :shelves, dependent: :destroy, inverse_of: :user
   has_many :games, through: :shelves
-  has_many :reviews, dependent: :destroy
-  has_many :ratings, dependent: :destroy
+  has_many :reviews, dependent: :destroy, inverse_of: :user
+  has_many :ratings, dependent: :destroy, inverse_of: :user
 
   attr_reader :password
   validates :password, length: {minimum: 6, allow_nil: true }
