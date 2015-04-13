@@ -13,9 +13,10 @@ progress! -->
 
 - [x] Create Accounts
 - [x] Log In
-- [ ] View game details with ratings and reviews
-- [ ] Search for games by name
-- [ ] Add games to their collection
+- [x] View game details 
+- [ ] ... with ratings and reviews
+- [x] Search for games by name
+- [x] Add games to their collection
 - [ ] Rate games
 - [ ] Review games
 - [ ] Search for games by tags
