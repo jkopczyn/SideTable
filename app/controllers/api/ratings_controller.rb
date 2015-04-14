@@ -6,7 +6,7 @@ class Api::RatingsController < ApplicationController
   end
 
   def create
-    @rating = Rating.new(review_params)
+    @rating = Rating.new(rating_params)
     if @rating.save
       render :show
     else
@@ -16,7 +16,7 @@ class Api::RatingsController < ApplicationController
 
   def update
     @rating = Rating.find(params[:id])
-    if @rating.update(review_params)
+    if @rating.update(rating_params)
       render :show
     else
       render json: @rating.errors.full_messages, status: 422
@@ -32,6 +32,10 @@ class Api::RatingsController < ApplicationController
   end
   
   private
+    def rating_params
+      params.require(:rating).permit(:score, :id, :user_id, :game_id)
+    end 
+
     def ensure_owner(rating)
       if current_user.id = rating.user_id
         return true

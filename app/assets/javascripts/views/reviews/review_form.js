@@ -2,6 +2,7 @@ SideTable.Views.ReviewForm = Backbone.View.extend({
 
   template: JST['reviews/form'],
   tagName: "form",
+  className: "edit-form",
 
   initialize: function(options) {
   },
