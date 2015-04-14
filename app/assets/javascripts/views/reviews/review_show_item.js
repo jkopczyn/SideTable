@@ -9,7 +9,6 @@ SideTable.Views.ReviewShowItem = Backbone.CompositeView.extend({
     //  model: this.model.user,
     //}))
     this.listenTo(this.model, "sync change", this.render);
-    this.model.fetch();
   },
 
   events: {
