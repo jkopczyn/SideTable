@@ -32,6 +32,9 @@ class Api::ReviewsController < ApplicationController
   end
   
   private
+    def review_params
+      params.require(:review).permit(:body, :id, :user_id, :game_id)
+    end 
     def ensure_owner(review)
       if current_user.id = review.user_id
         return true

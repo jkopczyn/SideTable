@@ -18,7 +18,6 @@ SideTable.Collections.Games = Backbone.Collection.extend({
       game.fetch({
         success: function(response) {
           this.add(game);
-          game.save()
         }.bind(this),
       });
     }
