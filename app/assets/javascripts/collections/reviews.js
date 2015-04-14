@@ -12,7 +12,7 @@ SideTable.Collections.Reviews = Backbone.Collection.extend({
     if(review) {
       review.fetch();
     } else {
-      review = new SideTable.Models.Shelf({ id: id });
+      review = new SideTable.Models.Review({ id: id });
       review.fetch({
         success: function(response) {
           this.add(review);
