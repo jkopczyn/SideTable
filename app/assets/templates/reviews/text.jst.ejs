@@ -1,0 +1,8 @@
+<% %>
+<p><%= review.escape("body") %></p>
+<% if (review.user_id == CurrentUser.id) { %>
+  <small>
+    <a href="javascript:void(0)" class="edit-review">Edit This Review</a>
+  </small>
+<% } %>
+
