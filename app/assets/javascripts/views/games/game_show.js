@@ -6,6 +6,9 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync", this.render);
     this.shelves = SideTable._router.shelves;
     this.shelves.fetch();
+    this.addSubview(".reviews-box", new SideTable.Views.ReviewsIndex(
+      { collection: this.model.reviews() }
+    ));
   },
 
   events: {
