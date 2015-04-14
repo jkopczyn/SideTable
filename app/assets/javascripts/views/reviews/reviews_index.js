@@ -1,6 +1,6 @@
 SideTable.Views.ReviewsIndex = Backbone.CompositeView.extend({
 
-  template: JST['reviews/list'],
+  template: JST['reviews'],
 
   initialize: function(options) {
     this.itemView = SideTable.Views.ReviewShowItem;
