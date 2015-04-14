@@ -1,6 +1,6 @@
 SideTable.Views.ShelvesIndexBox = Backbone.CompositeView.extend({
 
-  template: JST['shelves/index_box'],
+  template: JST['shelves'],
   url: "api/shelves",
 
   initialize: function() {

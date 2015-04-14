@@ -1,4 +1,4 @@
-SideTable.Views.ReviewIndexItem = Backbone.CompositeView.extend({
+SideTable.Views.ReviewForm = Backbone.View.extend({
 
   template: JST['reviews/form'],
   tagName: "form",
@@ -7,7 +7,7 @@ SideTable.Views.ReviewIndexItem = Backbone.CompositeView.extend({
   },
 
   render: function() {
-    this.$el.html(template({ review: this.model }));
+    this.$el.html(this.template({ review: this.model }));
     return this;
   },
 
