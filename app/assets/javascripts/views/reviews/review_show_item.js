@@ -5,9 +5,9 @@ SideTable.Views.ReviewShowItem = Backbone.CompositeView.extend({
 
   initialize: function(options) {
     //this.model.user.fetch();
-    //this.addSubview(".user-show-small", new SideTable.View.UserShowSmall({
-    //  model: this.model.user,
-    //}))
+    this.addSubview(".user-show-small", new SideTable.Views.UserShowSmall({
+      model: this.model.user(),
+    }))
     this.listenTo(this.model, "sync change", this.render);
   },
 
@@ -25,7 +25,7 @@ SideTable.Views.ReviewShowItem = Backbone.CompositeView.extend({
   addEditForm: function(event) {
     event.preventDefault();
     this.addSubview(".review-item", 
-      new SideTable.View.ReviewForm({model: this.model}));
+      new SideTable.Views.ReviewForm({model: this.model}));
   },
 
   removeEditForm: function(event) {
