@@ -1,11 +1,14 @@
 SideTable.Models.Review = Backbone.Model.extend({
-
-  urlRoot: "api/reviews",
+  urlRoot: "api/reviews/",
 
   initialize: function(options) {
+    options.game = options.game || {};
+    options.game.id = this.game_id = options.game.id || options.game_id;
     this.game(options.game);
+
+    options.user = options.user || {};
+    options.user.id = this.user_id = options.user.id || options.user_id;
     this.user(options.user);
-    this.user_id = options.user_id;
   },
   
   game: function(options) {

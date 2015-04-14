@@ -16,7 +16,7 @@ SideTable.Views.ReviewShowItem = Backbone.CompositeView.extend({
 
   events: {
     "click .edit-review": "addEditForm",
-    "submit .edit-form": "removeEditForm",
+    "submit .edit-review-form": "removeEditForm",
   },
 
   render: function() {
@@ -29,7 +29,7 @@ SideTable.Views.ReviewShowItem = Backbone.CompositeView.extend({
     event.preventDefault();
     this.removeSubviews(".review-item");
     this.addSubview(".review-item", 
-      new SideTable.Views.ReviewForm({model: this.model}));
+      new SideTable.Views.ReviewEditForm({model: this.model}));
   },
 
   removeEditForm: function(event) {
