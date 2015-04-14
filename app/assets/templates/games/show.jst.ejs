@@ -1,4 +1,4 @@
-<% "adding this at the top makes syntax highlighting work properly" %>
+<%  %>
 <h2><%= game.get('title') %></h2>
 <% var large_size = "250px" %>
 <div class="game-image">
@@ -18,6 +18,9 @@
   <a href="javascript:void(0)" class="shelve-button">Add to Shelf</a>
 </div>
 
+<% if(canReview) { %>
+  <a href="javascript:void(0)" class="add-review">Review This Game</a>
+<% } %>
 <div class="reviews-box"> </div>
 
 <a href="javascript:void(0)" class="back-button">Go Back</a>

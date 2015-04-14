@@ -15,12 +15,15 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     "click .back-button": "goBack",
     "click .shelve-button": "addShelfForm",
     "submit .shelf-form-container": "submitShelfForm",
+    "click .add-review": "addReviewForm",
+    "submit .add-review-form": "removeReviewForm",
   },
 
-  render: function() {
-    this.$el.html(this.template({
-      game: this.model
-    }));
+  render: function(options) {
+    this.$el.html(this.template(_.extend({
+      game: this.model,
+      canReview: !this.reviewExists(), 
+    }, options)));
     this.attachSubviews();
     return this;
   },
@@ -42,13 +45,42 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     event.preventDefault();
     var shelvingHash = this.$(".shelf-form-container form").serializeJSON();
     shelvingHash["game_id"] = this.model.id;
-    $.ajax({ url: "/api/shelvings", data: {"shelving": shelvingHash}, method: "POST",
+    $.ajax({ url: "/api/shelvings", data: {"shelving": shelvingHash},
+           method: "POST",
            success: function (response) {
              this.model.set(response["game"]);
              this.shelves.get(response["shelf"]["id"]).add(this.model);
              this.removeSubviews('.shelf-form-container');
              this.$('.shelf-form-container').empty(); 
            }.bind(this),
+    });
+  },
+
+  addReviewForm: function(event) {
+    event.preventDefault();
+    this.reviewForm = new SideTable.Views.ReviewNewForm({ 
+      model: new SideTable.Models.Review({ 
+        game: this.model,
+        user_id: CurrentUser.id,
+      }),
+    });
+    this.render({canReview: false});
+    this.prependSubview(".reviews-box", this.reviewForm );
+  },
+
+  removeReviewForm: function(event) {
+    event.preventDefault();
+    this.reviewForm.submitForm(
+      {success: function(response) {
+        this.removeSubview(".reviews-box", this.reviewForm);
+        this.model.reviews().add(this.reviewForm.model);
+      }.bind(this),
+    });
+  },
+
+  reviewExists: function() {
+    return this.model.reviews().any(function (review) {
+      return review.user_id == CurrentUser.id;
     });
   },
 });
