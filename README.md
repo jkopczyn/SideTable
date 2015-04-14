@@ -18,10 +18,7 @@ progress! -->
 - [x] Search for games by name
 - [x] Add games to their collection
 - [ ] Rate games
-- [ ] Review games
-- [ ] Search for games by tags
-- [ ] Add tags to games
-- [ ] Add games to database
+- [x] Review games
 
 ## Design Docs
 * [View Wireframes][views]
@@ -65,7 +62,20 @@ view will show the aggregate rating.
 
 [Details][phase-four]
 
-### Phase 5: Tag Games and Search By Tags (~ 2.5 days)
+### Bonus Features 
+#### Highly desirable features: 
+
+- [ ] Search for games by tags
+- [ ] Add tags to games
+- [ ] Add games to database
+- [ ] Search for users
+- [ ] View user profiles
+- [ ] Add friends
+- [ ] Search for games by designer
+- [ ] List of recommended games
+- [ ] Sort user's collections into multiple lists
+
+##### Phase 5: Tag Games and Search By Tags (~ 2.5 days)
 I will add Tag models in rails and Tagging join tables in the database
 to track which games have been tagged with what, and how many times. I
 will add the ability to search for games by tags in addition to name,
@@ -74,16 +84,6 @@ game view to add tags. Finally, I will add the ability for users to
 create games.
 
 [Details][phase-five]
-
-### Bonus Features 
-#### Highly desirable features: 
-
-- [ ] Search for users
-- [ ] View user profiles
-- [ ] Add friends
-- [ ] Search for games by designer
-- [ ] List of recommended games
-- [ ] Sort user's collections into multiple lists
 
 ##### Phase 6: Search users, add friends, and view profiles (~ 2.5 days)
 I will create a profile view for each user including a profile image
