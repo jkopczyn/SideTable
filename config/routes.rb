@@ -10,6 +10,7 @@ Rails.application.routes.draw do
 
    delete 'api/shelving' => "api/shelvings#destroy_by_ids"
    namespace :api, defaults: {format: :json} do
+     resources :users, only: [:show]
      resources :ratings, only: [:create, :update, :destroy, :show]
      resources :reviews, only: [:create, :update, :destroy, :show]
      resources :shelvings, only: [:create, :destroy]

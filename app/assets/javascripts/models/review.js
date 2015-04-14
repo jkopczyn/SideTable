@@ -1,13 +1,33 @@
 SideTable.Models.Review = Backbone.Model.extend({
 
-  user: function() {
+  urlRoot: "api/reviews",
+
+  initialize: function(options) {
+    this.game(options.game);
+    this.user(options.user);
+    this.user_id = options.user_id;
+  },
+  
+  game: function(options) {
+    if(!this._game) {
+      this._game = new SideTable.Models.Game(options);
+      if(!$.isEmptyObject(options)) {
+        this._game.fetch();
+      }
+    }
+    return this._game
+  },
+
+  user: function(options) {
     if(!this._user) {
-      this._user = new SideTable.Models.User({ id: this.user_id });
-      this._user.fetch();
+      this._user = new SideTable.Models.User(options);
+      if(!$.isEmptyObject(options)) {
+        this._user.fetch();
+      }
     }
     return this._user
   },
-
+  
   parse: function(response) {
     if (response.user) {
       this.user().set(response.user);
