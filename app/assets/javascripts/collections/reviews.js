@@ -4,6 +4,7 @@ SideTable.Collections.Reviews = Backbone.Collection.extend({
 
   initialize: function(options) {
     this.getWithFetch = this.getOrFetch;
+    this.game = options.game;
   },
 
   getOrFetch: function(id) {

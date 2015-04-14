@@ -11,9 +11,6 @@ SideTable.Models.Review = Backbone.Model.extend({
   game: function(options) {
     if(!this._game) {
       this._game = new SideTable.Models.Game(options);
-      if(!$.isEmptyObject(options)) {
-        this._game.fetch();
-      }
     }
     return this._game
   },
@@ -21,9 +18,6 @@ SideTable.Models.Review = Backbone.Model.extend({
   user: function(options) {
     if(!this._user) {
       this._user = new SideTable.Models.User(options);
-      if(!$.isEmptyObject(options)) {
-        this._user.fetch();
-      }
     }
     return this._user
   },
