@@ -1,7 +1,7 @@
 json.extract! @shelving, :id, :game_id, :shelf_id
 json.game do
-  json.partial! @game, partial: "api/games/game", as: :game, tree: false
+  json.extract! @shelving.game, :id, :title, :designer, :image_url, :description
 end
 json.shelf do
-  json.partial! @shelf, partial: "api/shelves/shelf", as: :shelf, tree: false
+  json.extract! @shelving.shelf, :id, :title, :user_id
 end

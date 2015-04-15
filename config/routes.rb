@@ -13,7 +13,7 @@ Rails.application.routes.draw do
      resources :users, only: [:show]
      resources :ratings, only: [:create, :update, :destroy, :show]
      resources :reviews, only: [:create, :update, :destroy, :show]
-     resources :shelvings, only: [:create, :destroy]
+     resources :shelvings, only: [:create, :destroy, :show]
      resources :games, only: [:show, :index, :update]
      resources :shelves, only: [:show, :index, :update, :create] do
        resources :games, only: [:index]

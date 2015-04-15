@@ -4,9 +4,13 @@ class Api::ShelvingsController < ApplicationController
   def create
     @shelf = Shelf.find(shelving_params["shelf_id"])
     @game = Game.find(shelving_params["game_id"])
+    debugger
     if ensure_owner(@shelf)
-      Shelving.create({game: @game, shelf: @shelf});
-      render :show
+      if (@shelving = Shelving.create({game: @game, shelf: @shelf}))
+        render :show
+      else
+        render json: @shelving.errors.full_messages, status: 422
+      end
     end
   end
 
@@ -28,6 +32,11 @@ class Api::ShelvingsController < ApplicationController
       @shelving.destroy
       render :show
     end
+  end
+
+  def show
+    @shelving = Shelving.find(params[:id])
+    render :show
   end
 
   private

@@ -49,7 +49,7 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
            method: "POST",
            success: function (response) {
              this.model.set(response["game"]);
-             this.shelves.get(response["shelf"]["id"]).add(this.model);
+             this.shelves.get(response["shelf"]["id"]).games().add(this.model);
              this.removeSubviews('.shelf-form-container');
              this.$('.shelf-form-container').empty(); 
            }.bind(this),
