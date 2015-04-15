@@ -9,6 +9,8 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     this.addSubview(".reviews-box", new SideTable.Views.ReviewsIndex(
       { collection: this.model.reviews() }
     ));
+    this.addGroupRating();
+    this.addUserRating();
   },
 
   events: {
@@ -82,5 +84,25 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     return this.model.reviews().any(function (review) {
       return review.user_id == CurrentUser.id;
     });
+  },
+
+  addGroupRating: function() {
+    var selector = ".community-rating";
+    var rating = this.model.averageRating();
+    if (rating.get('score')) {
+      this.addSubview(selector, new SideTable.Views.RatingShow({ 
+        readOnly: true, 
+        model: rating,
+      }));
+    }
+  },
+
+  addUserRating: function() {
+    var selector = ".personal-rating";
+    var rating = this.model.ratings().findByUserId(CurrentUser.id) ||
+      new SideTable.Models.Rating({ user_id: CurrentUser.id, game_id: this.id});
+    this.addSubview(selector, new SideTable.Views.RatingShow({ 
+      model: rating
+    }));
   },
 });

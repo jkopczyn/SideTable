@@ -2,6 +2,7 @@ SideTable.Models.Rating = Backbone.Model.extend({
   urlRoot: "api/ratings/",
 
   initialize: function(options) {
+    options = options || {};
     options.game = options.game || {};
     options.game.id = this.game_id = options.game.id || options.game_id;
     this.game(options.game);

@@ -12,8 +12,8 @@
 //
 //= require jquery
 //= require jquery.serializejson
-//= require jquery.rateyo
 //= require jquery_ujs
+//= require jquery.rateyo
 //= require underscore
 //= require backbone
 //= require side_table
