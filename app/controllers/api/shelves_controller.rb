@@ -3,10 +3,6 @@ class Api::ShelvesController < ApplicationController
 
   def show
     @shelf = Shelf.find(params[:id])
-    unless @shelf.user_id == current_user.id
-      render json: "Invalid User Access", status: 422
-      return nil
-    end
     render :show
   end
 
@@ -16,12 +12,7 @@ class Api::ShelvesController < ApplicationController
   end
   
   def create
-    whitelist = shelf_params
-    unless whitelist.user_id == current_user.id
-      render json: "Invalid User Access", status: 422
-      return nil
-    end
-    @shelf = Shelf.new(whitelist)
+    @shelf = Shelf.new(shelf_params)
     if @shelf.save
       render :show
     else
@@ -30,13 +21,8 @@ class Api::ShelvesController < ApplicationController
   end
 
   def update
-    whitelist = shelf_params
-    unless whitelist.user_id == current_user.id
-      render json: "Invalid User Access", status: 422
-      return nil
-    end
     @shelf = Shelf.find(params[:id])
-    if @shelf.update(whitelist)
+    if @shelf.update(shelf_params)
       render :show
     else
       render json: @shelf.errors.full_messages, status: 422
@@ -45,6 +31,6 @@ class Api::ShelvesController < ApplicationController
 
   private
   def shelf_params
-    shelf_permitted = params.require(:shelf).permit(:title, :user_id)
+    params.require(:shelf).permit(:title, :user_id)
   end
 end
