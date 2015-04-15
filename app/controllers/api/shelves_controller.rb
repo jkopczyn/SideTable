@@ -12,6 +12,12 @@ class Api::ShelvesController < ApplicationController
   end
   
   def create
+    whitelist = shelf_params
+     
+    unless whitelist["user_id"].to_i == current_user.id
+      render json: "Invalid User Access", status: 422
+      return nil
+    end
     @shelf = Shelf.new(shelf_params)
     if @shelf.save
       render :show
@@ -21,6 +27,12 @@ class Api::ShelvesController < ApplicationController
   end
 
   def update
+    whitelist = shelf_params
+     
+    unless whitelist["user_id"].to_i == current_user.id
+      render json: "Invalid User Access", status: 422
+      return nil
+    end
     @shelf = Shelf.find(params[:id])
     if @shelf.update(shelf_params)
       render :show
