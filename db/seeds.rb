@@ -10,7 +10,7 @@ Game.create!([
 Rating.create!([
   {user_id: 1, game_id: 1, score: 5},
   {user_id: 1, game_id: 2, score: 5},
-  {user_id: 1, game_id: 3, score: 0}
+  {user_id: 1, game_id: 3, score: 1}
 ])
 Review.create!([
   {user_id: 1, game_id: 1, body: "Best game ever. Would play a million times. 6/5."},

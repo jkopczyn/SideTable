@@ -67,7 +67,7 @@ SideTable.Views.ShelvesIndexBox = Backbone.CompositeView.extend({
         var selector = ".new-shelf";
         this.removeSubviews(selector);
         this.render();
-        Backbone.history.navigate("#/shelves/"+newModel.id+"");
+        Backbone.history.navigate("#/shelves/"+response.id+"");
       }.bind(this),
     });
     this.$('text').val('');
