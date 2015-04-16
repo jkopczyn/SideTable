@@ -89,18 +89,15 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
   addGroupRating: function() {
     var selector = ".community-rating";
     var rating = this.model.averageRating();
-    if (rating.get('score')) {
       this.addSubview(selector, new SideTable.Views.RatingShow({ 
         readOnly: true, 
         model: rating,
       }));
-    }
   },
 
   addUserRating: function() {
     var selector = ".personal-rating";
-    var rating = this.model.ratings().findByUserId(CurrentUser.id) ||
-      new SideTable.Models.Rating({ user_id: CurrentUser.id, game_id: this.id});
+    var rating = this.model.userRating();
     this.addSubview(selector, new SideTable.Views.RatingShow({ 
       model: rating
     }));
