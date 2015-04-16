@@ -33,6 +33,7 @@ class Api::RatingsController < ApplicationController
   
   private
     def rating_params
+      debugger
       params.require(:rating).permit(:score, :id, :user_id, :game_id)
     end 
 
