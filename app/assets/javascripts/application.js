@@ -15,7 +15,6 @@
 //= require jquery.serializejson
 //= require jquery.rateyo
 //= require underscore
-//= require bootstrap-sprockets
 //= require backbone
 //= require side_table
 //= require_tree ../templates
@@ -25,3 +24,4 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+//= require bootstrap

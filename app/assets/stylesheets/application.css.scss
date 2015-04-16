@@ -13,7 +13,11 @@
  *= require jquery.rateyo
  *= require_tree .
  *= require_self
- */
+  */
+
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
 
 .clearfix {
   overflow: auto;

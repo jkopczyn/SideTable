@@ -1,7 +1,8 @@
 SideTable.Views.Navbar = Backbone.View.extend({
 
   template: JST['navbar'],
-  className: "navbar clearfix",
+  className: "navbar navbar-default",
+  tagName: "nav",
 
   events: {
     "click .logo": "goHome",

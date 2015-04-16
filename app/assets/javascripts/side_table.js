@@ -3,7 +3,7 @@ window.SideTable = {
   Collections: {},
   Views: {},
   Routers: {},
-  baseUrl: "http://www.sidetable.us",
+  baseUrl: "http://localhost:3000",
   initialize: function() {
     this._router = new SideTable.Routers.Router({
       $rootEl: $('#content'),
