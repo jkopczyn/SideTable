@@ -4,7 +4,6 @@ class Api::ShelvingsController < ApplicationController
   def create
     @shelf = Shelf.find(shelving_params["shelf_id"])
     @game = Game.find(shelving_params["game_id"])
-    debugger
     if ensure_owner(@shelf)
       if (@shelving = Shelving.create({game: @game, shelf: @shelf}))
         render :show

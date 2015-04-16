@@ -8,8 +8,8 @@ Game.create!([
   {title: "Memeopoly", image_url: "http://gadgetsin.com/uploads/2011/03/memeopoly_internet_themed_monopoly_board_game.jpg", designer: "Anonymous", description: "It's from the Internet. Just be glad it won't try to label your cats."}
 ])
 Rating.create!([
-  {user_id: 1, game_id: 1, score: 5},
-  {user_id: 1, game_id: 2, score: 5},
+  {user_id: 1, game_id: 1, score: 50},
+  {user_id: 1, game_id: 2, score: 50},
   {user_id: 1, game_id: 3, score: 1}
 ])
 Review.create!([

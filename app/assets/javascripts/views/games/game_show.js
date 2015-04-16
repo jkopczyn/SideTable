@@ -4,6 +4,8 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
 
   initialize: function(options) {
     this.listenTo(this.model, "sync", this.render);
+    this.listenTo(this.model.ratings(), "sync change add remove", this.renderGroupRating);
+
     this.shelves = SideTable._router.shelves;
     this.shelves.fetch();
     this.addSubview(".reviews-box", new SideTable.Views.ReviewsIndex(
@@ -17,6 +19,7 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     "submit .shelf-form-container": "submitShelfForm",
     "click .add-review": "addReviewForm",
     "submit .add-review-form": "removeReviewForm",
+    "rateyo.set .personal-rating": "setRating"
   },
 
   render: function(options) {
@@ -25,6 +28,8 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
       canReview: !this.reviewExists(), 
     }, options)));
     this.attachSubviews();
+    this.renderGroupRating();
+    this.renderUserRating();
     return this;
   },
 
@@ -82,5 +87,33 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     return this.model.reviews().any(function (review) {
       return review.user_id == CurrentUser.id;
     });
+  },
+
+
+  ratingDefaults: { starWidth: "30px", },
+
+  renderGroupRating: function() {
+    var selector = ".community-rating";
+    var rating = this.model.averageRating();
+    var options = _.extend({}, this.defaults);
+    options.rating = (rating.get('score') || 0)/10;
+    options.readOnly = true;
+    this.$(selector).rateYo(options);
+  },
+
+  renderUserRating: function() {
+    var selector = ".personal-rating";
+    var rating = this.model.userRating();
+    var options = _.extend({}, this.defaults);
+    options.rating = (rating.get('score') || 0)/10;
+    this.$(selector).rateYo(options);
+  },
+
+  setRating: function(event,data) {
+    var rating = this.model.userRating();
+    rating.set('score', data.rating*10);
+    if(rating.get('score') > 0) {
+      rating.save();  
+    }
   },
 });
