@@ -23,6 +23,23 @@ SideTable.Collections.Ratings = Backbone.Collection.extend({
     return rating;
   },
 
+  getOrFetchByUser: function(id) {
+    var rating = this.findByUserId(id);
+    if(rating) {
+      rating.fetch();
+    } else {
+      rating = new SideTable.Models.Rating({  user_id: id, 
+                                              game_id: this.game.id });
+      rating.fetch({
+        success: function(response) {
+          this.add(rating);
+          rating.save()
+        }.bind(this),
+      });
+    }
+    return rating;
+  },
+
   findByUserId: function(userId) {
     return this.find(function(rating) { return rating.get('user_id') == userId });
   },
