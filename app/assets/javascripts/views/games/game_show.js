@@ -112,6 +112,8 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
   setRating: function(event,data) {
     var rating = this.model.userRating();
     rating.set('score', data.rating*10);
-    rating.save();
+    if(rating.get('score') > 0) {
+      rating.save();  
+    }
   },
 });
