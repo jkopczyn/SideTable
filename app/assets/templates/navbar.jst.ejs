@@ -1,32 +1,52 @@
-<% var notLoggedIn = typeof CurrentUser === "undefined" || 
-                  $.isEmptyObject(CurrentUser); %>
+<% "" %>
+<% var notLoggedIn = (typeof CurrentUser === "undefined" || 
+        $.isEmptyObject(CurrentUser)) %>
 <% var loggedIn = !notLoggedIn %>
 
-<div class="navbar-logo">
-  <h1>SideTable</h1>
-</div>
-<div class="navbar-links">
-  <ul class="navbar-links-list clearfix">  
-    <li class="navbar-link"><a href="<%= SideTable.baseUrl %>">Home</a></li>
-    <% if (loggedIn) { %>
-      <li class="navbar-link"><a href="#shelves">My Games</a></li>
-      <li class="navbar-link"><a href="#recommendations">Recommendations</a></li>
+<div class="container-fluid">
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle collapsed"
+    data-toggle="collapse" data-target="#navbar-collapse-1">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="<%= SideTable.baseUrl %>">
+      SideTable
+    </a>
+  </div>   
+  <div class="collapse navbar-collapse" id="navbar-collapse-1">
+    <ul class="nav navbar-nav navbar-left">  
+      <li><a href="#">Home</a></li>
+      <% if (loggedIn) { %>
+        <li><a href="#shelves">My Games</a></li>
+        <li><a href="#recommendations">Recommendations</a></li>
+      <% } %>
+      <li><a href="#explore">Explore</a></li>
+
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <% if (notLoggedIn) { %>
+        <li>
+          <button class="btn btn-default" href="/users/new">
+          Sign Up!
+          </button>
+        </li>
+      <% } else { %>
+        <li>
+          <form method="post" action="/session"
+                class="navbar-form button_to sign-out ">
+            <input type="hidden" 
+                   name="authenticity_token"
+                   value="<%= $("meta[name='csrf-token']").attr('content') %>" >
+            <input type="hidden"
+                   name="_method"
+                   value="delete">
+            <button class="btn btn-default" type="submit">Log Out</button>
+          </form>
+        </li>
+      </ul>
     <% } %>
-    <li class="navbar-link"><a href="#explore">Explore</a></li>
-  </ul>
+  </div>
 </div>
-<% if (notLoggedIn) { %>
-  <div class="sign-up">
-    <a href="/users/new">Sign Up!</a>
-  </div>
-<% } else { %>
-  <div class="navbar-notifiers">
-    <form method="post" action="/session" class="button_to sign-out">
-      <input type="hidden" 
-             name="authenticity_token"
-             value="<%= $('meta[name="csrf-token"]').attr('content') %>" >
-      <input type="hidden" name="_method" value="delete" />
-      <div><input value="Log Out" type="submit" /></div>
-    </form>
-  </div>
-<% } %>
