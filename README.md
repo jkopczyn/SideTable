@@ -14,10 +14,10 @@ progress! -->
 - [x] Create Accounts
 - [x] Log In
 - [x] View game details 
-- [ ] ... with ratings and reviews
+- [x] ... with ratings and reviews
 - [x] Search for games by name
 - [x] Add games to their collection
-- [ ] Rate games
+- [x] Rate games
 - [x] Review games
 
 ## Design Docs
