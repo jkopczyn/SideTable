@@ -1,7 +1,7 @@
 SideTable.Collections.Games = Backbone.Collection.extend({
 
   model: SideTable.Models.Game,
-  url: "/api/games",
+  url: SideTable.baseUrl+"/api/games",
 
   initialize: function(options){
     options = options || {};
