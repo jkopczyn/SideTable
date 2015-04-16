@@ -52,17 +52,7 @@ SideTable.Models.Game = Backbone.Model.extend({
 
   userRating: function () {
     var id = CurrentUser.id;
-    if(!this._userRatings) {
-      this._userRatings = {};
-    }
-    if(!this._userRatings[id]) {
-      this._userRatings[id] = new SideTable.Models.Rating({
-        user_id: id, game_id: this.id
-      });
-    } else {
-      this._userRatings[id].set(this.ratings().findByUserId(id));
-    }
-    return this._userRatings[id];
+    return this.ratings().findByUserId(id) || new SideTable.Models.Rating();
   },
 
   reviews: function() {

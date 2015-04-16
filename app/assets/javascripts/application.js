@@ -11,10 +11,11 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery.serializejson
 //= require jquery_ujs
+//= require jquery.serializejson
 //= require jquery.rateyo
 //= require underscore
+//= require bootstrap-sprockets
 //= require backbone
 //= require side_table
 //= require_tree ../templates
