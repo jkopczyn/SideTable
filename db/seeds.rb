@@ -1,6 +1,6 @@
 User.create!([
-  {session_token: "nHk0ULq5Vcv6FohjUz70LQ", password_digest: "$2a$10$qftgE00xqTU8zlsPvrA72eyNUc3sZLbF3b0E1QvqrnuJSDkQ13sOC", email: "foo@gmail.com", name: "Jacob Kopczynski"},
-  {session_token: "RycQO2x5cbYvjM6KmOdHuw", password_digest: "$2a$10$1/NdWw78/EHM5b3J2Kdxi.iyrmrBQ1njzLH0w28/dC39kMffqxCtW", email: "bar@gmail.com", name: "John Doe"}
+  {session_token: "kD4FXnOyP8pro8wMPCYTmQ", password_digest: "$2a$10$qftgE00xqTU8zlsPvrA72eyNUc3sZLbF3b0E1QvqrnuJSDkQ13sOC", email: "foo@gmail.com", name: "Jacob Kopczynski"},
+  {session_token: "VnWv0Psi3g_DrGsbkkM4PA", password_digest: "$2a$10$1/NdWw78/EHM5b3J2Kdxi.iyrmrBQ1njzLH0w28/dC39kMffqxCtW", email: "bar@gmail.com", name: "John Doe"}
 ])
 Game.create!([
   {title: "Zaibatsu", image_url: "http://germainekoh.com/league/blog/wp-content/uploads/2013/12/boardgames.jpg", designer: "Jacob Kopczynski", description: "A fast-paced auction game for 2-4 players"},
@@ -14,8 +14,10 @@ Rating.create!([
 ])
 Review.create!([
   {user_id: 1, game_id: 1, body: "Best game ever. Would play a million times. 6/5."},
+  {user_id: 2, game_id: 1, body: "Wonderful. 5/5."},
   {user_id: 1, game_id: 2, body: "Best game ever. Would play until the world was used up. 5/5."},
-  {user_id: 1, game_id: 3, body: "LOL would not recommend to my worst enemy"}
+  {user_id: 1, game_id: 3, body: "LOL would not recommend to my worst enemy"},
+  {user_id: 2, game_id: 2, body: "Very nice components, but bland gameplay. 3/5."}
 ])
 Shelf.create!([
   {title: "Geeky Games", user_id: 2},
@@ -29,4 +31,3 @@ Shelving.create!([
   {shelf_id: 2, game_id: 3},
   {shelf_id: 3, game_id: 1}
 ])
-
