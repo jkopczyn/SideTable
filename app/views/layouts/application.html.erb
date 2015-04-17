@@ -10,10 +10,14 @@
 <body>
   <header class="global-header"> </header>
   <% flash[:errors].each do |message| %>
-    <h3> <%= message %> </h3>
+    <div class="alert alert-danger"> <%= message %> </div>
   <% end if flash[:errors] %>
-
-<%= yield %>
+  
+  <div class="container-fluid">
+    <div class="row">
+      <%= yield %>
+    </div>
+  </div>
 
 </body>
 </html>
