@@ -1,10 +1,12 @@
 SideTable.Views.GameShow = Backbone.CompositeView.extend({
 
   template: JST['games/show'],
+  className: "",
 
   initialize: function(options) {
     this.listenTo(this.model, "sync", this.render);
-    this.listenTo(this.model.ratings(), "sync change add remove", this.renderGroupRating);
+    this.listenTo(this.model.ratings(), "sync change add remove", 
+                  this.renderGroupRating);
 
     this.shelves = SideTable._router.shelves;
     this.shelves.fetch();
