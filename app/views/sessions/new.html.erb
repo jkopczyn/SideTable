@@ -1,5 +1,9 @@
 <div class="sign-in col-sm-6 col-md-4 col-lg-2 col-lg-offset-1">
   <div class="row">
+    <h1>Welcome to SideTable</h1>
+    <h4>The board game site for social gamers</h4>
+  </div>
+  <div class="row">
     <h2>Log In</h2>
     <%= form_for :user, url: {controller: :sessions, action: :create},
       html: { class: "form-horizontal" } do |f| %>

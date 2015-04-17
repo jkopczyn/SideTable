@@ -1,10 +1,10 @@
-<% var size= 100 %>
 <% var url="#games/"+game.id+"" %>
-<a href="<%= url %>" class="col-md-1 col-sm-2 col-xs-6 thumb">
-  <img class="thumbnail" src="<%= game.escape('image_url') %>" 
-     width="<%= size %>" height="<%= size %>"></img>
-</a>
-<div class="game-item-short-description col-md-11 col-sm-10 col-xs-6">
+<div class="col-md-2 col-sm-3 col-xs-6 thumb">
+  <a href="<%= url %>" class="thumbnail">
+    <img class="img-responsive" src="<%= game.escape('image_url') %>" ></img>
+  </a>
+</div>
+<div class="game-item-short-description col-md-10 col-sm-9 col-xs-6">
   <div class="row">
     <a href="<%= url %>">
       <h4> <%= game.escape('title') %> </h4>
