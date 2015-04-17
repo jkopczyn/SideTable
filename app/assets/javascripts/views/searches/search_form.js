@@ -1,7 +1,7 @@
 SideTable.Views.SearchForm = Backbone.View.extend({
 
   tagName: "form",
-  className: "form-inline search-form",
+  className: "form-horizontal search-form",
   template: JST['searches/form'],
 
   initialize: function(options) {

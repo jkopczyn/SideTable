@@ -29,9 +29,11 @@
     <ul class="nav navbar-nav navbar-right">
       <% if (notLoggedIn) { %>
         <li>
-          <button class="btn btn-default" href="/users/new">
-          Sign Up!
-          </button>
+          <div class="navbar-form">
+            <a class="btn btn-default" href="/users/new">
+              Sign Up!
+            </a>
+          </div>
         </li>
       <% } else { %>
         <li>
