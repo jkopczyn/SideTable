@@ -3,22 +3,18 @@
     <h2>Sign Up</h2>
     <%= form_for :user, url: {controller: :users, action: :create},
       html: { class: "form-horizontal" } do |f| %>
-      <div class="form-group">
-        <label class="sr-only" for="email-field">Email</label>
-        <%= f.text_field :email, class: "form-control", 
-          placeholder: "Email", id: "email-field" %>
-      </div>
-      <div class="form-group">
-        <label class="control-label sr-only" for="password-field">Password</label>
-        <%= f.password_field :password, class: "form-control col-sm-10",
-          placeholder: "Password", id: "password-field" %>
-      </div>
-      <div class="form-group">
-        <%= f.submit "Sign Up", class: "btn btn-default center-block col-xs-12" %>
-      </div>
+      <label class="sr-only" for="email-field">Email</label>
+      <%= f.text_field :email, class: "form-control", 
+        placeholder: "Email", id: "email-field" %>
+      <label class="control-label sr-only" for="password-field">Password</label>
+      <%= f.password_field :password, class: "form-control col-sm-10",
+        placeholder: "Password", id: "password-field" %>
+      <%= f.submit "Sign Up", class: "btn btn-primary col-xs-12" %>
    <% end %>
    <%= button_to "Guest Login", users_path, method: :post, 
-     class: "btn btn-default center-block col-xs-12" %>
+     class: "btn btn-info col-xs-12" %>
+   <%= link_to "Login", new_session_path,
+     class: "btn btn-default col-xs-12" %>
   </div>
 </div>
 <div class="col-sm-6 col-md-8 col-lg-8" id="content">
