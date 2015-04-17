@@ -1,4 +1,8 @@
 <% "" %>
-<input type="text" name="title" value="<%= shelf.title %>"></input>
 <input type="hidden" name="user_id" value="<%= userId  %>"></input>
-<input type="submit" value="Add Shelf">
+<div class="input-group">
+  <input type="text" class="form-control" name="title" value="<%= shelf.title %>"></input>
+  <span class="input-group-btn">
+    <input type="submit" class="btn btn-default" value="Add Shelf">
+  </span>
+</div>
