@@ -7,7 +7,7 @@ class Api::GamesController < ApplicationController
   end
 
   def index
-    if params[:shelf_id]
+    if params[:shelf_id] or params[:id]
       @games = Shelf.find(params[:shelf_id]).games
     elsif params[:query]
       @games = Game.where(*query_args(params[:query]))
@@ -44,8 +44,11 @@ class Api::GamesController < ApplicationController
   end
 
   def query_args(query_hash)
+    #this takes the union of the two sets to ensure safety
     keys = query_hash.keys & GAME_FIELDS.map(&:to_s)
-    fields = keys.map { |key| "#{key} = :#{key}" }.join(" and ")
-    return [fields, query_hash]
+    fields = keys.map { |key| "#{key} ILIKE :#{key}" }.join(" and ")
+    values = {}
+    keys.each { |key| values[key.to_sym] = "%#{query_hash[key]}%" }
+    return [fields, values]
   end
 end

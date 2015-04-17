@@ -1,14 +1,27 @@
-<div class="sign-in">
-  <h2>Log In</h2>
-  <%= form_for :user, url: {controller: :sessions, action: :create}  do |f| %>
-    Email: <%= f.text_field :email %> <br>
-    Password: <%= f.password_field :password %> <br>
-    <%= f.submit "Log In" %>
-  <% end %>
-  <p><h3>Or Try It Out!</h3>
-  <%= button_to "Guest Login", users_path, method: :post %></p>
+<div class="sign-in col-sm-6 col-md-4 col-lg-2 col-lg-offset-1">
+  <div class="row">
+    <h2>Log In</h2>
+    <%= form_for :user, url: {controller: :sessions, action: :create},
+      html: { class: "form-horizontal" } do |f| %>
+      <div class="form-group">
+        <label class="sr-only" for="email-field">Email</label>
+        <%= f.text_field :email, class: "form-control", 
+          placeholder: "Email", id: "email-field" %>
+      </div>
+      <div class="form-group">
+        <label class="control-label sr-only" for="password-field">Password</label>
+        <%= f.password_field :password, class: "form-control col-sm-10",
+          placeholder: "Password", id: "password-field" %>
+      </div>
+      <div class="form-group">
+        <%= f.submit "Log In", class: "btn btn-default center-block col-xs-12" %>
+      </div>
+   <% end %>
+   <%= button_to "Guest Login", users_path, method: :post, 
+     class: "btn btn-default center-block col-xs-12" %>
+  </div>
 </div>
-<div id="content">
+<div class="col-sm-6 col-md-8 col-lg-8" id="content">
 </div>
 <script type="text/javascript">
   CurrentUser = {};
