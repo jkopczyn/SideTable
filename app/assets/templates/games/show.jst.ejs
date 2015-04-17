@@ -1,39 +1,45 @@
 <%  %>
 <h2><%= game.get('title') %></h2>
 <% var large_size = "250px" %>
-<div class="game-image">
-  <img src="<%= game.escape('image_url') %>" 
-       height="<%= large_size %>" width="<%= large_size %>">
-  </img>
-</div>
-<div class="game-description">
-  <% if(game.escape('description')) { %>
-    <h3> Description: </h3>
-    <%= game.escape('description') %>
-  <% } %>
-</div>
-
-<div class="shelf-box">
-  <div class="shelf-form-container"></div>
-  <a href="javascript:void(0)" class="shelve-button">Add to Shelf</a>
-</div>
-
-<div class="ratings-box">
-  <div class="community-rating-container">
-    <h4>Community Rating:</h4>
-    <div class="community-rating">  </div>
-  </div>
-  <% if(CurrentUser.id) { %>
-    <div class="personal-rating-container">
-      <h4>Your Rating:</h4>
-      <div class="personal-rating" >  </div>
+<div class="row">
+  <div class="col-md-3 col-xs-6 col-sm-5">
+    <div class="game-image row">
+      <img src="<%= game.escape('image_url') %>" 
+           height="<%= large_size %>" width="<%= large_size %>">
+      </img>
     </div>
-  <% } %>
+    <div class="ratings-box row">
+      <div class="col-xs-12">
+        <div class="community-rating-container row">
+          <h4>Community Rating:</h4>
+          <div class="community-rating">  </div>
+        </div>
+        <% if(CurrentUser.id) { %>
+          <div class="personal-rating-container row">
+            <h4>Your Rating:</h4>
+            <div class="personal-rating" >  </div>
+          </div>
+        <% } %>
+      </div>
+    </div>
+    <div class="shelf-box row">
+      <div class="shelf-form-container"></div>
+      <a href="javascript:void(0)" class="shelve-button">Add to Shelf</a>
+    </div>
+ </div>
+  <div class="col-md-9 col-sm-7 col-xs-6">
+    <div class="game-description">
+      <% if(game.escape('description')) { %>
+        <%= game.escape('description') %>
+      <% } %>
+    </div>
+    <% if(CurrentUser.id && canReview) { %>
+      <a href="javascript:void(0)" class="add-review">Review This Game</a>
+    <% } %>
+    <div class="reviews-box container-fluid"> 
+    </div>
+  </div>
 </div>
-
-<% if(CurrentUser.id && canReview) { %>
-  <a href="javascript:void(0)" class="add-review">Review This Game</a>
-<% } %>
-<div class="reviews-box"> </div>
-
-<a href="javascript:void(0)" class="back-button">Go Back</a>
+<div class="row">
+  <a href="javascript:void(0)" class="back-button">Go Back</a>
+</div>
