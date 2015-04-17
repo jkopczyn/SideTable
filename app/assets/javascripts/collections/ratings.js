@@ -1,5 +1,5 @@
 SideTable.Collections.Ratings = Backbone.Collection.extend({
-
+  url: "api/ratings/",
   model: SideTable.Models.Rating,
 
   initialize: function(options) {
@@ -30,10 +30,14 @@ SideTable.Collections.Ratings = Backbone.Collection.extend({
     } else {
       rating = new SideTable.Models.Rating({  user_id: id, 
                                               game_id: this.game.id });
-      rating.fetch({
+      this.game.fetch({
         success: function(response) {
-          this.add(rating);
-          rating.save()
+          var newRating = this.findByUserId(id);
+          if (newRating) {
+            rating.set(newRating.attributes);
+            this.remove(newRating);
+            this.add(rating);
+          }
         }.bind(this),
       });
     }
