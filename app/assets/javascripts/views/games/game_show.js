@@ -41,6 +41,7 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
 
   addShelfForm: function(event) {
     event.preventDefault();
+    this.removeSubviews('.shelf-form-container');
     this.addSubview('.shelf-form-container', 
       new SideTable.Views.GameShelvingForm({
         model: this.model,

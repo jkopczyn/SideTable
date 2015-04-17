@@ -2,7 +2,6 @@ SideTable.Models.Shelf = Backbone.Model.extend({
   urlRoot: "/api/shelves",
 
   initialize: function(options) {
-    this.games().set(options.games);
     this.collection = options.collection;
   },
 
