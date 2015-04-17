@@ -1,13 +1,19 @@
-<% var size= 250 %>
-<img class="game-item-long-icon" src="<%= game.escape('image_url') %>" 
-     width="<%= size %>" height="<%= size %>"></img>
-<div class="game-item-long-description">
+<% var url="#games/"+game.id+"" %>
+<div class="col-md-3 col-sm-4 col-xs-12 thumb">
+  <a href="<%= url %>" class="thumbnail">
+    <img class="img-responsive" src="<%= game.escape('image_url') %>" ></img>
+  </a>
+</div>
+<div class="game-item-long-description col-md-9 col-sm-8 col-xs-12">
   <h3> <%= game.escape('title') %> </h3>
   <% if( game.escape('designer')) { %>
     <p> Designed by <%= game.escape('designer') %> </p>
   <% } %>
-<p> <%= game.escape('description') %> </p>
-<p> <a href="#/games/<%= game.escape('id') %>">View Full Description</a></p>
+
+  <p><% var desc = game.escape('description') %> 
+      <%= desc.slice(0,500) %><%
+      if (desc.length > 500) { %>...<% } %>
+     <a href="#/games/<%= game.escape('id') %>">View Full Description</a></p>
 
 <small>
   <a href="javascript:void(0)" class="remove-button">
