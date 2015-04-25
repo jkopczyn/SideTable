@@ -31,7 +31,9 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     }, options)));
     this.attachSubviews();
     this.renderGroupRating();
-    this.renderUserRating();
+    if (CurrentUser.id) {
+      this.renderUserRating();
+    }
     return this;
   },
 

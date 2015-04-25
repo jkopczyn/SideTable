@@ -2,7 +2,7 @@
 <h2><%= game.get('title') %></h2>
 <% var large_size = "250px" %>
 <div class="row">
-  <div class="col-md-3 col-xs-6 col-sm-5">
+  <div class="col-md-2 col-xs-6 col-sm-3">
     <div class="game-image row">
       <img src="<%= game.escape('image_url') %>" 
            height="<%= large_size %>" width="<%= large_size %>">
@@ -30,7 +30,7 @@
       <% } %>
     </div>
  </div>
-  <div class="col-md-9 col-sm-7 col-xs-6">
+  <div class="col-md-6 col-sm-3 col-xs-6">
     <div class="game-description">
       <% if(game.escape('description')) { %>
         <%= game.escape('description') %>

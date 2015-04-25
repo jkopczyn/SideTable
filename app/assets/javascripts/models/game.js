@@ -1,7 +1,7 @@
 SideTable.Models.Game = Backbone.Model.extend({
   urlRoot: SideTable.baseUrl+"/api/games/",
 
-  initialize: function(models, options) {
+  initialize: function(options) {
     this.listenTo(this, "sync change", this.averageRating);
     this.listenTo(this, "sync change", this.userRating);
   },
@@ -52,7 +52,11 @@ SideTable.Models.Game = Backbone.Model.extend({
 
   userRating: function () {
     var id = CurrentUser.id;
-    return this.ratings().getOrFetchByUser(id)
+    if(id) {
+      return this.ratings().getOrFetchByUser(id);
+    } else {
+      return false;
+    }
   },
 
   reviews: function() {
