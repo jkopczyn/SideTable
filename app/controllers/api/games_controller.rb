@@ -1,5 +1,4 @@
 class Api::GamesController < ApplicationController
-  before_action :require_logged_in, except: [:index]
 
   def show
     @game = Game.find(params[:id])

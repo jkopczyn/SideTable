@@ -1,5 +1,5 @@
 SideTable.Models.Shelf = Backbone.Model.extend({
-  urlRoot: "/api/shelves",
+  urlRoot: SideTable.baseUrl+"/api/shelves",
 
   initialize: function(options) {
     this.collection = options.collection;

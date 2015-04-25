@@ -1,7 +1,7 @@
 SideTable.Models.Game = Backbone.Model.extend({
-  urlRoot: "api/games/",
+  urlRoot: SideTable.baseUrl+"/api/games/",
 
-  initialize: function(options) {
+  initialize: function(models, options) {
     this.listenTo(this, "sync change", this.averageRating);
     this.listenTo(this, "sync change", this.userRating);
   },
@@ -20,7 +20,7 @@ SideTable.Models.Game = Backbone.Model.extend({
 
   ratings: function() {
     if (!this._ratings){
-      this._ratings = new SideTable.Collections.Ratings({ game: this });
+      this._ratings = new SideTable.Collections.Ratings([], { game: this });
     }
     return this._ratings;
   },
@@ -57,7 +57,7 @@ SideTable.Models.Game = Backbone.Model.extend({
 
   reviews: function() {
     if (!this._reviews){
-      this._reviews = new SideTable.Collections.Reviews({ game: this });
+      this._reviews = new SideTable.Collections.Reviews([], { game: this });
     }
     return this._reviews;
   },

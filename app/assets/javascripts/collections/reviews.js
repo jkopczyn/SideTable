@@ -2,7 +2,7 @@ SideTable.Collections.Reviews = Backbone.Collection.extend({
 
   model: SideTable.Models.Review,
 
-  initialize: function(options) {
+  initialize: function(models, options) {
     this.getWithFetch = this.getOrFetch;
     this.game = options.game;
   },
