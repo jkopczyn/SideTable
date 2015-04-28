@@ -5,6 +5,7 @@ SideTable.Collections.Games = Backbone.Collection.extend({
 
   initialize: function(models, options){
     options = options || {};
+    this.url = options.url || this.url;
     this.getWithFetch = this.getOrFetch;
     this.queryObject = (options.search && options.search.query) || {}
   },

@@ -14,6 +14,7 @@ Rails.application.routes.draw do
      resources :ratings, only: [:create, :update, :destroy, :show]
      resources :reviews, only: [:create, :update, :destroy, :show]
      resources :shelvings, only: [:create, :destroy, :show]
+     get 'games/explore' => 'games#explore'
      resources :games, only: [:show, :index, :update]
      resources :shelves, only: [:show, :index, :update, :create] do
        resources :games, only: [:index]
