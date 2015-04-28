@@ -26,7 +26,7 @@ SideTable.Views.GameShelvingForm = Backbone.View.extend({
       return game.id !== that.model.id; 
     };
     var please = function(shelf) { 
-      var opening = shelf.games().every(check) && shelf.games().length > 0;
+      var opening = shelf.games().every(check); //&& shelf.games().length > 0;
       return opening;
     };
     var arr = this.shelves.filter(please, this);
