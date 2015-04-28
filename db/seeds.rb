@@ -21,6 +21,8 @@ Review.create!([
   {user_id: 1, game_id: 1, body: "Best game ever. Would play a million times. 6/5."},
   {user_id: 1, game_id: 3, body: "LOL would not recommend to my worst enemy"},
   {user_id: 1, game_id: 2, body: "Best game ever. Would play until the world was used up. 10/5."}
+  {user_id: 2, game_id: 2, body: "Very nice components, but bland gameplay. 3/5."},
+  {body: "The theme is loose but really fun (everything is named after old Sci Fi authors; consider it a reading list), and the dice-based worker placement mechanic was wonderfully innovative the first time I saw it, and tons of fun. The game takes a little longer than it really needs to, and I don't recommend the expansions, but would absolutely recommend this as a second or third strategic game for a fairly new gamer.", game_id: 4, user_id: 1}
 ])
 Shelf.create!([
   {title: "Geeky Games", user_id: 2},

@@ -1,5 +1,5 @@
 class Api::ShelvesController < ApplicationController
-  before_action :require_logged_in
+  before_action :require_logged_in, only: [:index, :create, :update]
 
   def show
     @shelf = Shelf.find(params[:id])

@@ -1,5 +1,5 @@
 SideTable.Models.Rating = Backbone.Model.extend({
-  urlRoot: "api/ratings/",
+  urlRoot: SideTable.baseUrl+"/api/ratings/",
 
   initialize: function(options) {
     options = options || {};

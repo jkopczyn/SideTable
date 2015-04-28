@@ -1,4 +1,5 @@
 class Api::RatingsController < ApplicationController
+  before_action :require_logged_in, except: [:show]
 
   def show
     @rating = Rating.find(params[:id])

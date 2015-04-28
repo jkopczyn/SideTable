@@ -1,8 +1,8 @@
 SideTable.Collections.Ratings = Backbone.Collection.extend({
-  url: "api/ratings/",
+  url: SideTable.baseUrl+"/api/ratings/",
   model: SideTable.Models.Rating,
 
-  initialize: function(options) {
+  initialize: function(models, options) {
     this.getWithFetch = this.getOrFetch;
     this.game = options.game;
   },

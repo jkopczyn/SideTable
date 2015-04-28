@@ -51,13 +51,6 @@ SideTable.Routers.Router = Backbone.Router.extend({
     });
     this._swapView(v);
     v.loadSearch(params);
-    //    var search, games;
-    //if (params) {
-    //  search = new SideTable.Models.Search({queryString: params});
-    //  games = new SideTable.Collections.Games({search: search});
-    //} else {
-    //  games = this.games;
-    //}
   },
 
   showShelfSearch: function(params) {
