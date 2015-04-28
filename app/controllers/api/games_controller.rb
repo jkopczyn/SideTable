@@ -35,7 +35,7 @@ class Api::GamesController < ApplicationController
   end
 
   def explore
-    @games = random_items(10)
+    @games = random_items(10).shuffle
     render :index
   end
 
