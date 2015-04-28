@@ -7,7 +7,7 @@ SideTable.Models.Shelf = Backbone.Model.extend({
 
   games: function() {
     if (!this._games){
-      this._games = new SideTable.Collections.Games({ shelf: this });
+      this._games = new SideTable.Collections.Games([], { shelf: this });
     }
     return this._games;
   },

@@ -42,7 +42,7 @@ SideTable.Views.GameSearchView = Backbone.CompositeView.extend({
 
   loadSearch: function(queryString) {
     search = new SideTable.Models.Search({ queryString: queryString });
-    games = new SideTable.Collections.Games({ search: search });
+    games = new SideTable.Collections.Games([],{ search: search });
     games.fetch({
       success: function() {
         this.collection.reset(games.models);
