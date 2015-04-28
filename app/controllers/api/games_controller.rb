@@ -34,12 +34,22 @@ class Api::GamesController < ApplicationController
     end
   end
 
+  def explore
+    @games = random_items(10)
+    render :index
+  end
+
   private
 
   GAME_FIELDS = [:id, :title, :designer, :image_url, :description]
 
   def game_params
     params.require(:game).permit(*GAME_FIELDS)
+  end
+
+  def random_items(n)
+    last = Game.pluck(:id).last
+    Game.where(id: (1..last).to_a.shuffle[0...n])
   end
 
   def query_args(query_hash)
