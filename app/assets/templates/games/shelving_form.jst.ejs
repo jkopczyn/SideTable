@@ -1,11 +1,13 @@
 <% "" %>
 <% if (shelves.length > 0) { %>
-  <select name="shelf_id">
-  <% shelves.each(function(shelf) {  %>
-    <option value="<%= shelf.id %>">
-      <%= shelf.escape("title") %>
-    </option>
-  <% }) %>
-  </select>
-  <input type="submit" value="Add To Shelf">
+  <div class="form-group">
+    <select class="form-control" name="shelf_id">
+    <% shelves.each(function(shelf) {  %>
+      <option value="<%= shelf.id %>">
+        <%= shelf.escape("title") %>
+      </option >
+    <% }) %>
+    </select >
+    <input type="submit" class="btn btn-default" value="Add To Shelf">
+  </div >
 <% } %>
