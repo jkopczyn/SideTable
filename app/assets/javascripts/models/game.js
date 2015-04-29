@@ -3,7 +3,8 @@ SideTable.Models.Game = Backbone.Model.extend({
 
   initialize: function(options) {
     this.listenTo(this, "sync change", this.averageRating);
-    this.listenTo(this, "sync change", this.userRating);
+    this.listenToOnce(this, "sync", this.userRating);
+    this.listenTo(this, "change", this.userRating);
   },
 
   parse: function(response) {
@@ -42,7 +43,7 @@ SideTable.Models.Game = Backbone.Model.extend({
 
     if (rateList.length > 0 ) {
       score = _.foldl(scoreList, 
-                      function(sum, s) { return sum+s  }, 0) / rateList.length;
+          function(sum, s) { return sum+s  }, 0) / rateList.length;
     } else {
       score = undefined;
     }
@@ -52,8 +53,12 @@ SideTable.Models.Game = Backbone.Model.extend({
 
   userRating: function () {
     var id = CurrentUser.id;
+    this._userRating = this._userRating || [];
     if(id) {
-      return this.ratings().getOrFetchByUser(id);
+      if(!this._userRating[id]) {
+        this._userRating[id] = this.ratings().getOrFetchByUser(id);
+      }
+      return this._userRating[id];
     } else {
       return false;
     }

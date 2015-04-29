@@ -16,9 +16,13 @@ SideTable.Views.ShelfIndexLong = SideTable.Views.GameSearchView.extend({
     //definitely has one
     this.listenToOnce(this.shelves, "sync", function() {
       this.model = this.shelves.first();
-      this.model.fetch();
-      this.collection = this.model.games();
-      this.listenTo(this.model, "sync change:title", this.render);
+      if (this.model) {
+        this.model.fetch();
+        this.collection = this.model.games();
+        this.listenTo(this.model, "sync change:title", this.render);
+      } else {
+        this.collection = SideTable._router.games;
+      }
       SideTable.Views.GameSearchView.prototype.initialize.apply(this,arguments);
     });
     this.shelves.fetch();
