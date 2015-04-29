@@ -29,7 +29,9 @@ gem 'newrelic_rpm'
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'bootstrap-sass'
-gem 'filepicker-rails'
+gem 'bootswatch-rails'
+#Re-include if enabling game creation
+#gem 'filepicker-rails'
 
 gem 'thin'
 
