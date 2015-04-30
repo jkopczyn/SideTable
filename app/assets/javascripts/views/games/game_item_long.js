@@ -9,6 +9,7 @@ SideTable.Views.GameItemLong = Backbone.CompositeView.extend({
     this.listenTo(this.model, "sync change", this.render);
     this.listenTo(this.model.ratings(), "sync change add remove", 
                   this.renderGroupRating);
+    this.model.trigger('sync');
   },
 
   events: {
