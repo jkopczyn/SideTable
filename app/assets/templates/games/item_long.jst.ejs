@@ -5,10 +5,20 @@
   </a>
 </div>
 <div class="game-item-long-description col-md-9 col-sm-8 col-xs-12">
-View Full Description</p>
-  <h3><a href="#/games/<%= game.escape('id') %>">
-    <%= game.escape('title')%>
-  </a></h3>
+  <div class="row">
+    <h3 class="col-md-5 col-sm-4 col-xs-6" >
+      <a href="#/games/<%= game.escape('id') %>">
+       <%= game.escape('title')%>
+      </a>
+    </h3>
+    <div class="ratings-box">
+      <div class="col-xs-6 col-md-4">
+        <div class="community-rating-container row">
+          <div class="community-rating">  </div>
+        </div>
+      </div>
+    </div>
+  </div>
   <% if( game.escape('designer')) { %>
     <p> Designed by <%= game.escape('designer') %> </p>
   <% } %>

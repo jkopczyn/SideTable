@@ -94,13 +94,12 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     });
   },
 
-
   ratingDefaults: { starWidth: "30px", },
 
   renderGroupRating: function() {
     var selector = ".community-rating";
     var rating = this.model.averageRating();
-    var options = _.extend({}, this.defaults);
+    var options = _.extend({}, this.ratingDefaults);
     options.rating = (rating.get('score') || 0)/10;
     options.readOnly = true;
     this.$(selector).rateYo(options);
