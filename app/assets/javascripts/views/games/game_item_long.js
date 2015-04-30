@@ -1,4 +1,4 @@
-SideTable.Views.GameItemLong = Backbone.View.extend({
+SideTable.Views.GameItemLong = Backbone.CompositeView.extend({
 
   template: JST['games/item_long'],
   tagName: "li",
@@ -7,6 +7,9 @@ SideTable.Views.GameItemLong = Backbone.View.extend({
   initialize: function(options) {
     this.shelf = options.shelf;
     this.listenTo(this.model, "sync change", this.render);
+    this.listenTo(this.model.ratings(), "sync change add remove", 
+                  this.renderGroupRating);
+    this.model.trigger('sync');
   },
 
   events: {
@@ -18,6 +21,8 @@ SideTable.Views.GameItemLong = Backbone.View.extend({
       game: this.model, 
       shelf: this.shelf,
     }));
+    this.attachSubviews();
+    this.renderGroupRating();
     return this;
   },
 
@@ -33,4 +38,14 @@ SideTable.Views.GameItemLong = Backbone.View.extend({
     });
   },
 
+  ratingDefaults: { starWidth: "30px", },
+  
+  renderGroupRating: function() {
+    var selector = ".community-rating";
+    var rating = this.model.averageRating();
+    var options = _.extend({}, this.ratingDefaults);
+    options.rating = (rating.get('score') || 0)/10;
+    options.readOnly = true;
+    this.$(selector).rateYo(options);
+  },
 });
