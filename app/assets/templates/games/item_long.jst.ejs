@@ -5,12 +5,15 @@
   </a>
 </div>
 <div class="game-item-long-description col-md-9 col-sm-8 col-xs-12">
-  <h3> <%= game.escape('title') %> </h3>
+View Full Description</p>
+  <h3><a href="#/games/<%= game.escape('id') %>">
+    <%= game.escape('title')%>
+  </a></h3>
   <% if( game.escape('designer')) { %>
     <p> Designed by <%= game.escape('designer') %> </p>
   <% } %>
 
-  <p><% var desc = game.escape('description') %> 
+  <p><% var desc = game.escape('description') %>
       <%= desc.slice(0,500) %><%
       if (desc.length > 500) { %>...<% } %>
      <a href="#/games/<%= game.escape('id') %>">View Full Description</a></p>
