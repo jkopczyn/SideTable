@@ -1,17 +1,17 @@
 class Api::GamesController < ApplicationController
 
   def show
-    @game = Game.find(params[:id])
+    @game = Game.includes(:ratings, :reviews, :shelves, :users).find(params[:id])
     render :show
   end
 
   def index
     if params[:shelf_id] or params[:id]
-      @games = Shelf.find(params[:shelf_id]).games
+      @games = Shelf.find(params[:shelf_id]).games.includes(:ratings)
     elsif params[:query]
-      @games = Game.where(*query_args(params[:query]))
+      @games = Game.where(*query_args(params[:query])).includes(:ratings)
     else
-      @games = Game.all
+      @games = Game.all.includes(:ratings)
     end
     render :index
   end
@@ -49,7 +49,7 @@ class Api::GamesController < ApplicationController
 
   def random_items(n)
     last = Game.pluck(:id).last
-    Game.where(id: (1..last).to_a.shuffle[0...n])
+    Game.where(id: (1..last).to_a.shuffle[0...n]).includes(:ratings)
   end
 
   def query_args(query_hash)
