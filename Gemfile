@@ -33,6 +33,8 @@ gem 'bootswatch-rails'
 #Re-include if enabling game creation
 #gem 'filepicker-rails'
 
+gem 'kaminari'
+
 gem 'thin'
 
 # Use Capistrano for deployment

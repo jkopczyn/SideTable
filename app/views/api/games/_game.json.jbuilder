@@ -1,4 +1,9 @@
-json.extract! game, :id, :title, :designer, :image_url, :description
+json.extract! game, :id, :title, :designer, :image_url, 
+                    :description
+if @total_pages
+  json.page @page
+  json.total_pages @total_pages
+end
 
 if tree
   json.reviews do

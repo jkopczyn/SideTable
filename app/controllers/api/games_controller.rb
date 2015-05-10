@@ -6,13 +6,15 @@ class Api::GamesController < ApplicationController
   end
 
   def index
+    @page = params[:page] ? params[:page] : 1
     if params[:shelf_id] or params[:id]
-      @games = Shelf.find(params[:shelf_id]).games.includes(:ratings)
+      @games = Shelf.find(params[:shelf_id]).games.includes(:ratings).page(@page)
     elsif params[:query]
-      @games = Game.where(*query_args(params[:query])).includes(:ratings)
+      @games = Game.where(*query_args(params[:query])).includes(:ratings).page(@page)
     else
-      @games = Game.all.includes(:ratings)
+      @games = Game.order(:id).page(@page).includes(:ratings)
     end
+    @total_pages = @games.total_pages
     render :index
   end
 
