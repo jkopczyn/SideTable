@@ -11,6 +11,7 @@ SideTable.Views.GameSearchView = Backbone.CompositeView.extend({
     this.listenTo(this.collection, "add", this.addGame);
     this.listenTo(this.collection, "remove", this.removeGame);
     this.listenTo(this.collection, "reset", this.handleReset);
+    this.listenToScroll();
     this.collection.each(this.addGame.bind(this));
     this.addSubview('.search', new SideTable.Views.SearchForm());
   },
@@ -60,5 +61,22 @@ SideTable.Views.GameSearchView = Backbone.CompositeView.extend({
     _.each(options.previousModels, this.removeGame.bind(this));
     models.each(this.addGame.bind(this));
     this.render();
+  },
+
+  listenToScroll: function() {
+    var throttledCallback = _.throttle(this.addNextPage.bind(this), 500);
+    $(window).scroll(throttledCallback);
+  },
+
+  addNextPage: function() {
+    if(!this.isLoading) {
+      this.isLoading = true;
+      this.collection.fetch({data: {page: (Number(this.collection.page) + 1)},
+        success: function() {
+          this.isLoading = false;
+          this.render();
+        }.bind(this),
+      });
+    }
   },
 });

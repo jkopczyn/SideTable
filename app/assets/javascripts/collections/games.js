@@ -10,6 +10,12 @@ SideTable.Collections.Games = Backbone.Collection.extend({
     this.queryObject = (options.search && options.search.query) || {}
   },
 
+  parse: function(response) {
+    this.page = response.page;
+    this.total_pages = response.total_pages;
+    return response.games;
+  },
+
   getOrFetch: function(id) {
     var game = this.get(id);
     if(game) {
@@ -27,7 +33,8 @@ SideTable.Collections.Games = Backbone.Collection.extend({
   
   fetch: function(options) {
     options = options || {};
-    options.data = options.data || {};
+    options.remove = false;
+    options.data = options.data || { page: 1};
     if (!this.queryObject || $.isEmptyObject(this.queryObject)) {
       Backbone.Collection.prototype.fetch.call(this, options);
     } else {

@@ -38,7 +38,7 @@ SideTable.Routers.Router = Backbone.Router.extend({
   },
 
   allGames: function() {
-    this.games.fetch();
+    this.games.fetch({data: {page: 1}});
     var v = new SideTable.Views.GamesIndexShort({
       collection: this.games,
     });
