@@ -51,6 +51,7 @@ Backbone.CompositeView = Backbone.View.extend({
 
   remove: function () {
     Backbone.View.prototype.remove.call(this);
+    $(window).off("scroll");
     _(this.subviews()).each(function (subviews) {
       _(subviews).each(function (subview) {
         subview.remove();
