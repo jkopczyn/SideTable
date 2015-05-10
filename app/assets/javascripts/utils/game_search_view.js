@@ -69,7 +69,8 @@ SideTable.Views.GameSearchView = Backbone.CompositeView.extend({
   },
 
   addNextPage: function() {
-    if(!this.isLoading) {
+    if(!this.isLoading && (!this.collection.total_pages || 
+          this.collection.page < this.collection.total_pages)) {
       this.isLoading = true;
       this.collection.fetch({data: {page: (Number(this.collection.page) + 1)},
         success: function() {
