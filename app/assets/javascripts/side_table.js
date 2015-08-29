@@ -3,7 +3,7 @@ window.SideTable = {
   Collections: {},
   Views: {},
   Routers: {},
-  baseUrl: "http://localhost:3000",
+  baseUrl: "http://www.sidetable.us",
   initialize: function() {
     this._navbar = new SideTable.Views.Navbar();
     $('.global-header').html(this._navbar.render().$el);
