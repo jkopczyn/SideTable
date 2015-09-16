@@ -1,11 +1,7 @@
 # SideTable
 
-<!-- [Heroku link][heroku] -->
-
-<!-- [heroku]: http://flux-capacitr.herokuapp.com -->
-
 ## Minimum Viable Product
-SideTable is a clone of Goodreads adapted for board and card games, 
+SideTable (<http://SideTable.us>) is a clone of Goodreads adapted for board and card games, 
 built on Rails and Backbone. Users can:
 
 <!-- This is a Markdown checklist. Use it to keep track of your
@@ -68,11 +64,11 @@ view will show the aggregate rating.
 - [ ] Search for games by tags
 - [ ] Add tags to games
 - [ ] Add games to database
+- [ ] Search for games by designer
 - [ ] Search for users
 - [ ] View user profiles
 - [ ] Add friends
-- [ ] Search for games by designer
-- [ ] List of recommended games
+- [x] List of recommended games
 - [ ] Sort user's collections into multiple lists
 
 ##### Phase 5: Tag Games and Search By Tags (~ 2.5 days)
