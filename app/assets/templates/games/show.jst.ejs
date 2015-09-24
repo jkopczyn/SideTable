@@ -1,7 +1,7 @@
 <%  %>
 <h2><%= game.get('title') %></h2>
 <% var large_size = "250px" %>
-<div class="row container">
+<div class="row container-fluid">
   <div class="col-md-3 col-xs-6 col-sm-5">
     <div class="game-image row img-thumbnail">
       <img src="<%= game.escape('image_url') %>" class="img-responsive"
@@ -43,6 +43,6 @@
     </div>
   </div>
 </div>
-<div class="row container">
+<div class="row container-fluid">
   <a href="javascript:void(0)" class="back-button btn">Go Back</a>
 </div>
