@@ -2,12 +2,19 @@
 <% if (shelves.length > 0) { %>
   <div class="form-group">
     <select class="form-control" name="shelf_id">
-    <% shelves.each(function(shelf) {  %>
+    <% _.each(markedShelves, function(pair) {  %>
+      <% var shelf = pair[0] %>
+      <% var present = pair[1] %>
       <option value="<%= shelf.id %>">
-        Add to <%= shelf.escape("title") %>
+        <% if(!present) { %>
+          Add to 
+        <% } else { %>
+          Remove from
+        <% } %>
+        <%= shelf.escape("title") %>
       </option >
     <% }) %>
     </select >
-    <input type="submit" class="btn btn-default" value="Add To Shelf">
+    <input type="submit" class="btn btn-default" value="Shelve!">
   </div >
 <% } %>
