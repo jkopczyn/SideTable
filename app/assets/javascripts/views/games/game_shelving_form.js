@@ -13,9 +13,10 @@ SideTable.Views.GameShelvingForm = Backbone.View.extend({
   },
 
   render: function() {
-    this.filterShelves();
+    //this.filterShelves();
     this.$el.html(this.template({
       shelves: this.shelves,
+      markedShelves: this.markShelves(this.shelves)
     }));
     return this;
   },
@@ -32,4 +33,17 @@ SideTable.Views.GameShelvingForm = Backbone.View.extend({
     var arr = this.shelves.filter(please, this);
     this.shelves.set(arr);
   },
+
+  markShelves: function() {
+    var that = this;
+    var gamePresent = function(shelf) { 
+      return shelf.games().findWhere({id: that["model"]["id"]}) != undefined;
+    }
+    var arr = []
+    this.shelves.each(function(shelf) {
+      arr.push([shelf, gamePresent(shelf)]);
+    });
+    //debugger
+    return arr;
+  }
 });

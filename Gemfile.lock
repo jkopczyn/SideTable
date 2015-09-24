@@ -155,7 +155,7 @@ GEM
     seed_dump (3.2.2)
       activerecord (~> 4)
       activesupport (~> 4)
-    spring (1.3.4)
+    spring (1.3.6)
     sprockets (3.0.3)
       rack (~> 1.0)
     sprockets-rails (2.2.4)
@@ -204,7 +204,7 @@ DEPENDENCIES
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   seed_dump
-  spring
+  spring (= 1.3.6)
   thin
   uglifier (>= 1.3.0)
   web-console (~> 2.0)
