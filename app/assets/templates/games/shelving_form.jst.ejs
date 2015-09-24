@@ -4,7 +4,7 @@
     <select class="form-control" name="shelf_id">
     <% shelves.each(function(shelf) {  %>
       <option value="<%= shelf.id %>">
-        <%= shelf.escape("title") %>
+        Add to <%= shelf.escape("title") %>
       </option >
     <% }) %>
     </select >
