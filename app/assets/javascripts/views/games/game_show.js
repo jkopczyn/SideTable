@@ -55,27 +55,30 @@ SideTable.Views.GameShow = Backbone.CompositeView.extend({
     event.preventDefault();
     var shelvingHash = this.$(".shelf-form-container form").serializeJSON();
     var onShelf = (this.shelves.get(shelvingHash["shelf_id"]).games().get(this.model.id) != undefined)
-    var method, success;
+    var method, success, url;
     if(onShelf) {
+      url = "/api/shelving/";
       method = "DELETE";
       success = function (response) {
         this.model.set(response["game"]);
         this.shelves.get(response["shelf"]["id"]).games().remove(this.model);
-        this.subviews('.shelf-form-container').render();
+        this.subviews('.shelf-form-container')[0].render();
       }.bind(this)
     } else {
+      url = "/api/shelvings";
       method = "POST";
       success = function (response) {
         this.model.set(response["game"]);
         this.shelves.get(response["shelf"]["id"]).games().add(this.model);
-        this.subviews('.shelf-form-container').render();
+        this.subviews('.shelf-form-container')[0].render();
       }.bind(this)
     }
     shelvingHash["game_id"] = this.model.id;
-    debugger
-    $.ajax({ url: "/api/shelvings", data: {"shelving": shelvingHash},
-           method: method,
-           success: success,
+    $.ajax({ 
+      url: url, 
+      data: {"shelving": shelvingHash},
+      method: method,
+      success: success,
     });
   },
 
