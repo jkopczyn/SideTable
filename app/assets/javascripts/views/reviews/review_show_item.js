@@ -2,6 +2,7 @@ SideTable.Views.ReviewShowItem = Backbone.CompositeView.extend({
 
   template: JST['reviews/show_item'],
   tagName: "li",
+  className: "list-group-item",
 
   initialize: function(options) {
     //this.model.user.fetch();

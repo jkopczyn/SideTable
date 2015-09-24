@@ -1032,8 +1032,8 @@ Shelf.create!([
   {title: "Design Games", user_id: 2},
   {title: "Cool Games", user_id: 1},
   {title: "Terrible Games", user_id: 2},
-  {title: "Test", user_id: 1},
-  {title: "Working", user_id: 1},
+  {title: "Large Groups", user_id: 1},
+  {title: "Merely Functional", user_id: 1},
   {title: "Test", user_id: 20}
 ])
 Shelving.create!([
