@@ -6,18 +6,19 @@
   <div class="row">
     <h2>Log In</h2>
     <%= form_for :user, url: {controller: :sessions, action: :create},
-      html: { class: "form-horizontal" } do |f| %>
+      html: { class: "form-horizontal login-form" } do |f| %>
       <label class="sr-only" for="email-field">Email</label>
       <%= f.text_field :email, class: "form-control", 
         placeholder: "Email", id: "email-field" %>
       <label class="control-label sr-only" for="password-field">Password</label>
       <%= f.password_field :password, class: "form-control col-sm-10",
         placeholder: "Password", id: "password-field" %>
-      <%= f.submit "Log In", class: "btn btn-primary center-block col-xs-12" %>
+      <%= f.submit "Log In", class: "btn btn-primary center-block col-xs-12",
+        form_class: "login-form" %>
    <% end %>
     
    <%= button_to "Guest Login", users_path, method: :post, 
-     class: "btn btn-info col-xs-12" %>
+     class: "btn btn-info col-xs-12", form_class: "login-form"  %>
   </div>
 </div>
 <div class="col-sm-6 col-md-8 col-lg-8" id="content">

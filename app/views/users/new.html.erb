@@ -6,7 +6,7 @@
   <div class="row">
     <h2>Sign Up</h2>
     <%= form_for :user, url: {controller: :users, action: :create},
-      html: { class: "form-horizontal" } do |f| %>
+      html: { class: "form-horizontal login-form"  } do |f| %>
       <label class="sr-only" for="email-field">Email</label>
       <%= f.text_field :email, class: "form-control", 
         placeholder: "Email", id: "email-field" %>
@@ -16,9 +16,9 @@
       <%= f.submit "Sign Up", class: "btn btn-primary col-xs-12" %>
    <% end %>
    <%= button_to "Guest Login", users_path, method: :post, 
-     class: "btn btn-info col-xs-12" %>
+     class: "btn btn-info col-xs-12", form_class: "login-form" %>
    <%= link_to "Login", new_session_path,
-     class: "btn btn-default col-xs-12" %>
+     class: "btn btn-default col-xs-12", form_class: "login-form"  %>
   </div>
 </div>
 <div class="col-sm-6 col-md-8 col-lg-8" id="content">
