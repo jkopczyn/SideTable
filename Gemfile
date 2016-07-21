@@ -33,6 +33,9 @@ gem 'bootswatch-rails'
 #Re-include if enabling game creation
 #gem 'filepicker-rails'
 
+#replacing homerolled search
+gem 'pg_search'
+
 gem 'kaminari'
 
 gem 'thin'
